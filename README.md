@@ -1,6 +1,6 @@
 # Python3_learning
-Learning
 
+Introduction: 不爱唱歌的程序员不是一个好的男朋友
 
 ## python常见错误
 
