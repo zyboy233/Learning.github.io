@@ -6,4 +6,4 @@ Introduction: 不爱唱歌的程序员不是一个好的男朋友
 * [详情......](https://github.com/zysxm/zysxm.github.io/blob/master/Python.3.X.md)
 
 ## 干粮
-* [详情......](http://zyboy.top/zhangyu_collections/uwps.md)
+* [详情......](https://github.com/zysxm/zhangyu_collections/blob/master/uwps.md)
