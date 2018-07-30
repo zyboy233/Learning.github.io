@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="WeatherDB">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="kaifeng"/>
+    <table id="4" parent="2" name="luoyang"/>
+    <table id="5" parent="2" name="nanyang"/>
+    <table id="6" parent="2" name="pingdingshan"/>
+    <table id="7" parent="2" name="shangqiu"/>
+    <table id="8" parent="2" name="zhengzhou"/>
+    <table id="9" parent="2" name="zhoukou"/>
+    <table id="10" parent="2" name="zhumadian"/>
+    <column id="11" parent="3" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="12" parent="3" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="13" parent="3" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="14" parent="4" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="15" parent="4" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="16" parent="4" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="17" parent="5" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="18" parent="5" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="19" parent="5" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="20" parent="6" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="21" parent="6" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="22" parent="6" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="23" parent="7" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="24" parent="7" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="25" parent="7" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="26" parent="8" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="27" parent="8" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="28" parent="8" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="29" parent="9" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="30" parent="9" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="31" parent="9" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="32" parent="10" name="day">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="33" parent="10" name="high">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="34" parent="10" name="low">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+  </database-model>
+</dataSource>

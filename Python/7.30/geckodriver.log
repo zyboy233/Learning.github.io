@@ -1,0 +1,12 @@
+1532937922474	geckodriver	INFO	geckodriver 0.21.0
+1532937922490	geckodriver	INFO	Listening on 127.0.0.1:63267
+1532937925600	mozrunner::runner	INFO	Running command: "D:\\Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\45125\\AppData\\Local\\Temp\\rust_mozprofile.j3lO4JzC90vt"
+Unable to read VR Path Registry from C:\Users\45125\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\45125\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\45125\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\45125\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\45125\AppData\Local\openvr\openvrpaths.vrpath
+1532937928990	Marionette	INFO	Listening on port 63285
+1532937929031	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1532938236785	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
