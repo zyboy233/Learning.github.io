@@ -34,7 +34,8 @@ class Zimuzu(object):
             num = item.xpath('.//h3[@class="f14"]/font[@class="f4"]/text()')
             if len(num)==0:
                 num = ''
-            num = num[0]
+            else:
+                num = num[0]
             try:
                 self.sheet.write(self.record,0,point)
                 self.sheet.write(self.record,1,type)

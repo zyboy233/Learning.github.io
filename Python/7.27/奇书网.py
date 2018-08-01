@@ -69,7 +69,7 @@ class Qishu(object):
     def get_sub_data_with_url(self,url):
         request = Request(url, headers=self.headers)
         response = urlopen(request).read()
-        # print(response.decode())
+        print(response.decode())
         soup = BeautifulSoup(response, 'lxml')
 
         # 获取指定信息

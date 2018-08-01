@@ -24,7 +24,7 @@
 # 引入网页驱动
 from selenium import webdriver
 import time
-# 使用网页驱动来运行火狐浏览器
+# 使用网页驱动来运行google/firefox浏览器
 driver = webdriver.Chrome()
 # 通过驱动来执行指定的网页
 driver.get('http://www.baidu.com')
@@ -49,7 +49,7 @@ driver.get('http://www.baidu.com')
 # 通过name查找 属性
 # driver.find_element_by_name('wd').send_keys('csdn')
 
-# Unicode 若后面由中文 那么前面需要加一个u   r
+# Unicode 若后面有中文 那么前面需要加一个u   r
 # driver.find_element_by_class_name('s_ipt').send_keys(u'智游')
 
 # tag_name
@@ -63,7 +63,7 @@ driver.get('http://www.baidu.com')
 # driver.find_element_by_xpath('//form[@id="form"]/span/input[@id="kw"]').send_keys('123')
 
 #link 链接
-# print(driver.find_element_by_link_text('贴吧'))
+# driver.find_element_by_link_text('贴吧')
 
 # time.sleep(5)
 # driver.close()
