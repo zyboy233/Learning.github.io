@@ -54,7 +54,7 @@ spider = Spider()
 # jpg_url = spider.get_jpg_url_from_sub_code(sub_code)
 # spider.get_jpg_from_jpg_url(jpg_url,'12')
 
-for page in range(998,1000):
+for page in range(1000,1009):
     print(page)
     code = spider.get_code_from_url('http://qq9874.pw/cg_category/{}.html'.format(str(page)))
     # print(code)

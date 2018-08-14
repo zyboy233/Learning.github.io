@@ -13,7 +13,7 @@ class Meizitu(object):
 
 
     def spider(self):
-        self.get_data_with_url('/home/19')
+        self.get_data_with_url('/home/31')
     def get_data_with_url(self,url=''):
         headers = {
             'User-Agent':self.headers.random

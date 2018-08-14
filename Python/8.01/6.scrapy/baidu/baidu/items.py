@@ -12,4 +12,7 @@ import scrapy
 class BaiduItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    # pass
+    logo_img = scrapy.Field()
+    click_text = scrapy.Field()
+

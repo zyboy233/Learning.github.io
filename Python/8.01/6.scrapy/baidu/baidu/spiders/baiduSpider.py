@@ -15,4 +15,5 @@ class BaiduspiderSpider(scrapy.Spider):
         # 响应头
         # print(response.headers)
         # 获取当前状态
-        print(response.status)
+        # print(response.status)
+        code = response.body.decode()

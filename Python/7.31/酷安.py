@@ -10,13 +10,11 @@ class Kuan(object):
         self.workBook = None
         self.sheet = None
         self.record = 1
-        self.page = 1
     def spider(self):
         self.createWorkBook()
         self.get_code_with_url(self.base_url)
         self.workBook.save('D:/酷安.xls')
     def get_code_with_url(self,url):
-        print('正在爬取酷安app第{}页...'.format(self.page))
         headers = {
             'User-Agent':self.headers.random
         }
@@ -43,14 +41,11 @@ class Kuan(object):
             for index,item in enumerate(list):
                 self.sheet.write(self.record,index,item)
             self.record += 1
-        self.page += 1
         self.next_page(code)
     def next_page(self,code):
         next_page_url = code.xpath('//ul[@class="pagination"]/li[last()-1]/a/@href')[0]
         if next_page_url == 'javascript:void(0);':
             print('已经到最后一页了')
-            return
-        if next_page_url == '/apk?p=20':
             return
         self.get_code_with_url('https://www.coolapk.com'+next_page_url)
     def createWorkBook(self):
@@ -59,7 +54,6 @@ class Kuan(object):
         self.sheet = self.workBook.add_sheet('app')
         for index,item in enumerate(list):
             self.sheet.write(0,index,item)
-
 
 kuan = Kuan()
 kuan.spider()

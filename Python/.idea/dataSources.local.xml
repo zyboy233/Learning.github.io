@@ -83,5 +83,21 @@
       <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
     </data-source>
+    <data-source name="hongxiuDB" uuid="f5bbed71-c5f7-4b99-8632-01d43a4a81f4">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+    </data-source>
+    <data-source name="bianDB" uuid="02f42006-c36f-4cf9-95c5-10693cf9dfe7">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+    </data-source>
+    <data-source name="meishiDB [2]" uuid="0f502128-84a9-4869-bde4-30ed26f3cccd">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+    </data-source>
+    <data-source name="taobaoDB" uuid="3c706580-219c-469d-9729-e365d0aabd67">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+    </data-source>
   </component>
 </project>
