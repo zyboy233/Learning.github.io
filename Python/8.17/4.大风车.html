@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大风车</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        main{
+            width: 1300px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 0 auto;
+            /* 背景图尺寸默认为图片大小 */
+            background-image: url(caodi.png);
+            /* 设置别净土尺寸
+            1.宽
+            2.高 */
+            background-size: 1300px 500px;
+            /* 定位属性 会使定宽居中失效
+            position: absolute;
+            bottom: 0; */
+            position: relative;
+        }
+        section{
+            border: 10px solid red;
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        div{
+            width: 350px;
+            height: 350px;
+            background-image: url(fengche.png);
+            /* 自动调整图片大小 已达到适合标签的大小 */
+            background-size: contain;
+            position: absolute;
+            left: 260px;
+            top: 200;
+            /* animation-name: xiazhuan; */
+            /* animation-duration: 2s; */
+            /* 设置动画运动速率 linear 匀速 */
+            /* animation-timing-function: linear; */
+            /* 设置动画的运动次数 infinite 无穷的 */
+            /* animation-iteration-count: infinite; */
+            animation: xiazhuan 2s linear infinite
+
+        }
+        /* 获取所有div当中的第二个 */
+        div:nth-child(2){
+            width: 150px;
+            height: 150px;
+            left: 590px;
+            top: 295px;
+        }
+        /* 鼠标覆盖 */
+        div:hover{
+            animation-duration: 0.1s;
+        }
+        /* 鼠标点击 */
+        div:active{
+            animation-name: none;
+            /* animation-duration: 0; */
+            
+        }
+        @keyframes xiazhuan{
+            0%{
+                /* 变换;转变
+                rotate 旋转 deg degree 角度 */
+                transform: rotate(0deg)
+            }
+            100%{
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <main>
+            <div></div>
+            <div></div>
+        </main>
+    </section>
+    
+</body>
+</html>

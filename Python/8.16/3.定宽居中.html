@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定宽居中</title>
+    <style>
+        div{
+            /* 定宽居中的前提是定宽 */
+            width: 600px;
+            height: 200px;
+            background-color: orange;
+            /* 定宽居中的目的是实现居中 
+            margin 外间距 */
+            /* 如果margin后面写如果两个值
+            值1:上下的外间距
+            值2:左右的外间距
+            auto 自动 自动调整左右间距达到居中的目的 */
+            margin: 0 auto;
+        }
+        body{
+            /* 设置body四周的外间距为0 */
+            /* margin 后面值的个数
+            1. 上下左右
+            2. 值1: 上下 值2: 左右
+            3. 值1: 上 值2: 左右 值3: 下
+            4. 上右下左顺时针 */
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

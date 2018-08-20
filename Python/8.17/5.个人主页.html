@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        header{
+            width: 100%;
+            height: 60px;
+            border-bottom: 1px solid black;
+            position: fixed;
+            top: 0;
+            background-color: aliceblue;
+            z-index: 999;
+        }
+        nav{
+            width: 960px;
+            height: 100%;
+            /* border: 1px solid orange; */
+            margin: 0 auto;
+            position: relative;
+        }
+        #logo{
+            height: 40px;
+            margin: 10px 0;
+        }
+        ul{
+            padding: 0;
+            /* 设置列表的风格样式 */
+            list-style: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        li{
+            /* float 往哪个方向浮动 */
+            float: left;
+            margin-right: 30px;
+            font-size: 20px;
+            
+        }
+        /* 设置li标签里面的a标签 */
+        li a{
+            text-decoration: None;
+            color: black;
+        }
+        #header{
+            width: 100%;
+            margin-top: 60px;
+        }
+        p{
+            width: 960px;
+            margin: 20px auto;
+            font-size: 18px;
+            text-indent: 2em;
+        }
+        p:before{
+            content:'"';
+            font-size: 30px;
+            position: relative;
+            top:10px;
+        }
+        p:after{
+            content: '"';
+            font-size: 30px;
+            position: relative;
+            top: 10px;
+        }
+        h1:before{
+            content: '\258A';
+        }
+        h1{
+            color: orange;
+            margin-left: 50px;
+        }
+        section{
+            width: 960px;
+            margin: 0 auto;
+        }
+        /* > 设置section标签的里面的子标签img */
+        section>img{
+            width: 100%;
+        }
+        section div{
+            width: 100%;
+            height: 600px;
+            background-image: url(classmates.jpg);
+            /* 值1: 设置图片宽和标签宽一致
+            值2:设置高一致 */
+            background-size: 100% 100%;
+            position: relative;
+        }
+        div>img{
+            width: 250px;
+            height: 250px;
+            /* 设置边框角度 50% 为圆角 */
+            border-radius: 50%;
+            border: 5px solid white;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        div>img:nth-child(2){
+            width: 350px;
+            height: 350px;
+            top: 220px;
+            left: 305px;
+        }
+        div>img:nth-child(3){
+            width: 150px;
+            height: 150px;
+            left: 780px;
+        }
+        hr{
+            width: 960px;
+            margin: 0 auto;
+        }
+        footer{
+            width: 960px;
+            margin: 0 auto;
+            margin-bottom: 100px;
+        }
+        li a:hover{
+            color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页头 -->
+    <header>
+        <nav>
+            <img id="logo" src="logo.png" alt="智游logo">
+            <ul>
+                <li><a href="#header">首页</a></li>
+                <li><a href="#html5">HTML5</a></li>
+                <li><a href="#classmates">我的同学</a></li>
+                <li><a href="#hometown">我的家乡</a></li>
+                <li><a href="#school">我的大学</a></li>
+                <li><a href="#about">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+    <img title="python九期奉献" id="header" src="header.jpg" alt="">
+    <p>
+        学好一门技术的唯一方法是使用它，在使用它的过程中才能真正学会它。 如果能够在使用它的过程中体会到乐趣，就是学习的最佳状态。希望大家在学习HTML5的过程中多多练习，多敲代码一定会有回报，意想不到的收获都会在使用的过程中迸发出来。
+    </p>
+
+    <h1>HTML5</h1>
+    <section>
+        <img id="html5" src="html5.jpg" alt="">
+        <p>从小就喜欢学习，感觉自己的自学能力超强，也喜欢把自己学会的知识分享给大家。我希望自己能够成为一个好老师，把每一个同学都教好，让他们都能有所成就。我认为一个好老师不仅要有较好的技术，也要对学生严格要求。放任不管只有部分同学能安心学习，严格要求才能保证绝大多数同学都能稳下心来好好学习。</p>
+    </section>
+    <h1>我的同学</h1>
+    <section>
+        <div id="classmates">
+            <img src="wf.png" alt="">
+            <img src="ldh.jpg" alt="">
+            <img src="lry.jpg" alt="">
+        </div>
+        <p>王菲、刘若英、刘德华：很高兴和你们一起学习HTML5，感谢在这个美好的季节遇见你们！</p>
+    </section>
+    <h1>我的家乡</h1>
+    <section>
+        <img id="hometown" src="home.jpg" alt="">
+        <p>我的家乡在南阳市，这里人杰地灵，有智圣诸葛亮，商圣范蠡，医圣张仲景，谋圣姜子牙，科圣张衡。我的现居地南召县，四五十万年前，“南召猿人”就在白河上游繁衍生息。与北京猿人大致处于同一时期。现在有南召县杏花山猿人遗址。</p>
+    </section>
+    <h1>我的大学</h1>
+    <section>
+        <img id="school" src="lzu.jpg" alt="">
+        <p>我的大学--家里蹲大学</p>
+    </section>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <footer id="about">
+            ©智游教育 版权所有　　0371-123456789　　郑州市经开区河南通信产业园6楼605
+    </footer>
+</body>
+</html>

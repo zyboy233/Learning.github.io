@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid green;
+            /* collapse 合并 */
+            border-collapse: collapse; 
+        }
+        th{
+            width: 100px;
+            height: 35px;
+            background-color: green;
+            color: white
+        }
+        td{
+            border-bottom: 1px solid green;
+            height: 30px;
+            text-align: center;
+        }
+        /* 获取所有tr当中的第一个
+        获得得到的tr当中的第六个以及第七个单元格 */
+        tr:nth-child(2)>td:nth-child(6),td:nth-child(7){
+            border-left: 1px solid green;
+        }
+        table>caption{
+            border: 1px solid green;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <!-- caption 首都 -->
+        <caption>python课程表</caption>
+        <!-- 星期 -->
+        <tr>
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+            <th>周六</th>
+            <th>周日</th>
+        </tr>
+        <!-- 上午 -->
+        <tr>
+            <td>python</td>
+            <td>python</td>
+            <td>python</td>
+            <td>python</td>
+            <td>python</td>
+            <td rowspan="2"">自习</td>
+            <td rowspan="3">休息</td>
+        </tr>
+        <!-- 下午 -->
+        <tr>
+            <td>python</td>
+            <td>python</td>
+            <td>python</td>
+            <td>python</td>
+            <td>python</td>
+            <!-- <td>自习</td> -->
+            <!-- <td>休息</td> -->
+        </tr>
+        <!-- 晚上 -->
+        <tr>
+            <td>自习</td>
+            <td>自习</td>
+            <td>自习</td>
+            <td>自习</td>
+            <td>自习</td>
+            <td>休息</td>
+            <!-- <td>休息</td> -->
+        </tr>
+    </table>
+</body>
+</html>

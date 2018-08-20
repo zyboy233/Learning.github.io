@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自动编号</title>
+    <style>
+        body{
+            /* count 总数 counter 计数 reset 重置 */
+            counter-reset: mainIndex;
+        }
+        h1:before{
+            content: '书籍' counter(mainIndex) ': ';
+            /* 增加指定计数器的值 */
+            counter-increment: mainIndex;
+        }
+        h1{
+            counter-reset: subIndex;
+        }
+        h2:before{
+            content: counter(mainIndex) '.' counter(subIndex) ' ';
+            counter-increment: subIndex;
+            
+        }
+        h2{
+            counter-reset: partIndex;
+            text-indent: 2em;
+        }
+        h3:before{
+            content: counter(mainIndex) '.' counter(subIndex) '.' counter(partIndex) ' ';
+            counter-increment: partIndex;
+           
+        }
+        h3{
+            text-indent: 6em;
+        }
+    </style>
+</head>
+<body>
+    <h1>西游记</h1>
+        <h2>第一回 猴王现世</h2>
+        <h2>第二回 东游学艺</h2>
+        <h2>第三回 大闹东海</h2>
+        <h2>第四回 大闹地府</h2>
+    <h1>时间简史</h1>
+    <h1>藏地密码</h1>
+    <h1>明朝那些事儿</h1>
+        <h2>崇八同志履历</h2>
+            <h3>父母饿死</h3>
+            <h3>兄弟饿死</h3>
+            <h3>全家饿死</h3>
+        <h2>决战陈友谅</h2>
+    <h1>活着</h1>
+</body>
+</html>

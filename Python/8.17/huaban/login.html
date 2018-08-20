@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #div{
+            width: 520px;
+            height: 520px;
+            border: 1px solid black;
+            text-align: center;
+            margin: 100px auto 20px;
+
+        }
+        div img{
+            height: 40px;
+            margin-top: 20px;
+        }
+        h4{
+            color: gray
+        }
+        h4:before{
+            content: '---------------- ';
+            font-size: 1px;
+        }
+        h4:after{
+            content: '---------------- ';
+            font-size: 1px;
+        }
+        #login{
+            width: 286px;
+            height: 36px;
+            margin-top: 10px;
+        }
+        .button{
+            background-color: rgb(252, 34, 34);
+        }
+        #img{
+            position: relative;
+            text-align: center;
+        }
+        #w{
+            position: absolute;
+            left: 160px;
+        }
+        #q{
+            position: absolute;
+            left: 210px;
+        }
+        #d{
+            position: absolute;
+            left: 260px;
+        }
+        #r{
+            position: absolute;
+            left: 310px;
+        }
+        .hide:hover{
+            z-index: -1;
+        }
+        span a{
+            text-decoration: rgb(255, 173, 173);
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <img src="hb.png" alt="">
+        <br>
+        <h4>使用第三方帐号登录</h4>
+        <div id="img">
+            <a id="w" href=""><img src="w0.png""></a>
+            <a id="w" class="hide" href=""><img src="w1.png" alt=""></a>
+            <a id="q" href=""><img src="q0.png" alt=""></a>
+            <a id="q" class="hide" href=""><img src="q1.png" alt=""></a>
+            <a id="d" href=""><img src="d0.png""></a>
+            <a id="d" class="hide" href=""><img src="d1.png" alt=""></a>
+            <a id="r" href=""><img src="r0.png""></a>
+            <a id="r" class="hide" href=""><img src="r1.png" alt=""></a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h4>使用手机号/邮箱登录</h4>
+        <form action="">
+            <input type="text" id="login" placeholder="输入手机号或者邮箱">
+
+            <input type="text" id="login" placeholder="密码">
+
+            <input class="button" type="button" value="登陆" id="login">
+        </form>
+        <br>
+        <span><a href="">忘记密码»            </a></span>
+        <span>还没有花瓣帐号？<a href="">点击注册»</a></span>
+    </div>
+</body>
+</html>

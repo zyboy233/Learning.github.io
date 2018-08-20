@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性继承</title>
+    <style>
+        p{
+            color: red;
+            border: 10px solid black;
+        }
+        span{
+            font-size: 100px;
+            border: 10px solid blue
+        }
+    </style>
+</head>
+<body>
+    <p>Hello</p>
+    <span>World</span>
+    <p>
+        <span>你好</span>
+        <br>
+        <br>
+        <span>你好</span>
+    </p>
+    <!-- 属性继承
+    子标签会继承父标签的属性 
+    但是只有字体相关的属性才能够被继承-->
+    <span>
+        <p>我很好</p>
+        <br>
+        <br>
+        <p>我很好</p>
+    </span>
+</body>
+</html>
