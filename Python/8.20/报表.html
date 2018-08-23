@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .tb{
+            /* height: 300px; */
+            width: 800px;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            box-shadow: 10px 10px 10px black;
+            
+            margin: 100px auto;
+            padding: 15px;
+        }
+        table{
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        tr{
+            height: 30px;
+        }
+        td{
+            height: 45px;
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        caption{
+            margin-bottom: 10px;
+        }
+        h1 span{
+            border-bottom: 1px solid black; 
+        }
+        caption>span{
+            margin-right: 100px;
+        }
+        .h span{
+            margin-left: 170px;
+        }
+        tr>td:nth-child(1){
+            width: 160px;
+        }
+        tr:nth-child(8)>td>span{
+            margin: 0 10px 0;
+        }
+        .footer{
+            line-height: 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb">
+        <table>
+            <caption><h1><span>费用报销单</span></h1>
+                <div class="h">
+                    <span>报销 日期 年 月 日 </span>
+                    <span>附件 张</span>
+                </div> 
+            </caption>
+            <tr>
+                <td>费用项目</td>
+                <td>金额</td>
+                <td>类别</td>
+                <td rowspan="2">负责人(签章)</td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="2">审查意见</td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="2">报销人(签章)</td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>¥</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <span>核实金额(大写)</span>
+                    <span>佰</span>
+                    <span>拾</span>
+                    <span>万</span>
+                    <span>仟</span>
+                    <span>佰</span>
+                    <span>拾</span>
+                    <span>元</span>
+                    <span>角</span>
+                    <span>¥</span>                
+                </td>
+                <!-- <td></td>
+                <td></td>
+                <td></td>
+                <td></td> -->
+            </tr>
+            <tr>
+                <td>借款额</td>
+                <td></td>
+                <td>应退金额</td>
+                <td></td>
+                <td>应补金额</td>
+                <!-- <td></td> -->
+            </tr>
+        </table>
+        <div class="footer">
+            <span>审核 出纳</span>
+        </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* reverse 相反 */
+            /* flex-wrap: wrap-reverse; */
+            
+            /* direction 方向 */
+            /* column 列  */
+            flex-direction:row;
+            /* sapce 空格 around 环绕 
+            标签与边框之间的间隔为标签与标签之间的间隔的一半*/
+            /* justify-content: space-around; */
+
+            /* 两个标签之间才会有空格 */
+            /* justify-content: space-between; */
+            
+            /* 设置所有文本的底部在同一个水平线上 */
+            align-items: baseline;
+
+            /* align-content: space-around; */
+        }
+        section{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 30px 0;
+        }
+        section:nth-child(4n+1){
+            height: 150px;
+            font-size: 50px;
+        }
+        section:nth-child(4n+2){
+            height: 160px;
+            font-size: 40px;
+        }
+        section:nth-child(4n+3){
+            height: 170px;
+            font-size: 30px;
+        }
+        section:nth-child(4n){
+            height: 180px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+    <section>5</section>
+    <section>6</section>
+    <section>7</section>
+    <section>8</section>
+    <section>9</section>
+    <section>10</section>
+    <section>11</section>
+    <section>12</section>
+    <section>13</section>
+    <section>14</section>
+    <section>15</section>
+    <section>16</section>
+    <section>17</section>
+    <section>18</section>
+    <section>19</section>
+    <section>20</section>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简历</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url(wood.png);
+        }
+
+        main {
+            width: 400px;
+            /* height: 100px; */
+            /* border: 1px solid white; */
+            margin: 0 auto;
+            font-family: 时尚中黑简体;
+        }
+
+        section {
+            width: 400px;
+            height: 100px;
+            border: 1px solid gray;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 1px 1px 1px gray;
+            /* 裁剪超出屏幕的内容 */
+            overflow: hidden;
+        }
+
+        section:nth-child(2n+1) {
+            left: -50px;
+        }
+
+        section:nth-child(2n) {
+            left: 50px;
+        }
+
+        .hole {
+
+            /* inline 行标签 代表标签 span */
+            /* 特征 1.同一行显示 2.不能设置大小 */
+            /* block 块标签 代表标签 div*/
+            /* 特征 1.独占一行 2.可以设置大小 */
+            /* inline-block 行内块标签 代表标签 img */
+            /* 特征 1.统一行显示 2.可以设置大小 */
+            /* 将行标签转化为 行内块 标签 */
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-image: url(wood.png);
+            position: relative;
+            left: 15px;
+            top: 70px;
+        }
+        section:nth-child(8) {
+            background-color: rgb(184, 172, 172);
+        }
+        section:nth-child(7) {
+            top: 15px;
+            background-color: rgb(228, 197, 228);
+            z-index: 93;
+        }
+
+        section:nth-child(6) {
+            top: 30px;
+            background-color: rgb(224, 224, 146);
+            z-index: 94;
+        }
+
+        section:nth-child(5) {
+            top: 45px;
+            background-color: rgb(248, 82, 82);
+            z-index: 95;
+        }
+
+        section:nth-child(4) {
+            top: 60px;
+            background-color: rgb(194, 116, 155);
+            z-index: 96;
+
+        }
+
+        section:nth-child(3) {
+            top: 75px;
+            background-color: rgb(194, 175, 71);
+            z-index: 97;
+            transform: rotate(-2deg)
+        }
+
+        section:nth-child(2) {
+            top: 90px;
+            background-color: rgb(230, 228, 228);
+            z-index: 98;
+            transform:rotate(2deg) 
+
+        }
+
+        section:nth-child(1) {
+            top: 105px;
+            background-color: black;
+            background-image: url(diwen.png);
+            background-size: 100% 160%;
+            z-index: 99;
+            transform: rotate(-2deg)
+        }
+
+        h1 {
+            color: white;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            margin: 0;
+            font-size: 65px;
+            font-family: 迷你简双线体;
+            font-weight: normal;
+        }
+        h2{
+            margin: 0;
+            color: rgb(172, 144, 228);
+            position: relative;
+            left: 40px;
+            font-size: 40px;
+        }
+        small{
+            font-size: 20px;
+            color: white;
+            position: relative;
+            left: 40px;
+        }
+        h3{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            margin: 0;
+        }
+        table{
+            margin: 0;
+            font-size: 12px;
+            position: absolute;
+            right: 20px;
+        }
+        table tr td{
+                text-align: right;
+        }
+        p{
+            position: relative;
+            left: 100px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .right-content{
+            position: absolute;
+            right: 20px;
+            top: 45px;
+            text-align: right;
+        }
+        ul{
+            margin: 0;
+            position: absolute;
+            top: 18px;
+            font-size: 12px;
+        }
+        ul li{
+            list-style: none;
+        }
+        /* .circle{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgb(105, 105, 206);
+            margin: -30px 20px;
+            
+        } */
+        .date{
+            position: relative;
+            top: -10px;
+            left: 30px;
+            font-size: 20px;
+            color: rgb(215, 220, 224);
+        }
+        .circle1{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* 设置半透明效果 方法一
+            颜色值范围 0~255
+            透明范围 0~1   0 完全透明  1完全不透明 */
+            background-color: rgb(255, 238, 0,0.5);
+            /* background-color: yellow;
+            opacity: 0.5; */
+            position: absolute;
+        }
+        .position{
+            top: -10px;
+            left: 40px;
+        }
+        .circle2{
+            width: 200px;
+            height: 200px;
+            background-color: rgba(204,0,255,0.5);
+            right:50px;
+            top: -50px;
+        }
+        #job{
+            color: white;
+            font-size: 40px;
+            position: relative;
+            left: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <span class="hole"></span>
+            <h1>简历</h1>
+            <h2>小婷</h2>
+            <small>xiaoting</small>
+        </section>
+        <section>
+            <span class="hole"></span>
+            <h3>个人信息</h3>
+            <table>
+                <tr>
+                    <td>籍贯:&#x3000;xxx</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>政治面貌:&#x3000;xxx</td>
+                    <td>名族:&#x3000;xx族</td>
+                </tr>
+                <tr>
+                    <td>毕业学校:&#x3000;xxxxxxxxx</td>
+                    <td>出生日期:&#x3000;9x年xx月xx日</td>
+                </tr>
+                <tr>
+                    <td>专业:&#x3000;xxxxx</td>
+                    <td>身高:&#x3000;1xxCM</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <span class="hole"></span>
+            <h3 style="position:absolute;left:20px">联系方式</h3>
+            <p>
+                电话:&#x3000;xxxxxxxxxxx<p>
+                Email:123456789@qq.com<p>
+                QQ:123456789
+            </p>
+
+        </section>
+        <section>
+            <span class="hole"></span>
+            <h3>教育经历</h3>
+            <div class="date">2007年至2012年7月</div>
+            <div class="right-content">
+                于xx省xx市xxxxxx学校<br>
+                就读xxxx
+            </div>
+        </section>
+        <section>
+            <span class="hole"></span>
+            <h3>实践经历</h3>
+            <div class="date">2010年07月至2011年9月</div>
+            <div class="right-content">
+                xx市xxxxx设计有限公司就职<br>
+                担当设计师
+            </div>
+        </section>
+        <section>
+            <span class="hole"></span>
+            <h3>技能水平</h3>
+            <div class="right-content">
+                可熟练操作<br>
+                CoreIDRAW, Adobe Photoshop<br>
+                等设计软件与办公室软件
+            </div>
+        </section>
+        <section>
+            <span class="hole"></span>
+            <h3>自我评价</h3>
+            <ul>
+                <li>大胆创新,具有敏锐的时尚触角,对<br>设计方面极感兴趣;</li>
+                <li>有良好的独立工作能力,工作认真积极,责任心强,有较好的沟通能力和接受能力;</li>
+                <li>既有团队精神和协调能力,使用能力强,能吃苦耐劳,待人真诚热情</li>
+            </ul>
+        </section>
+        <section>
+            <span class="hole"></span>
+            <!-- <div class="circle"></div>
+            <h3 style="position: relative;margin:0 150px;color: white">淘宝美工</h3>
+            <H3>求职意向</H3> -->
+            <div class="circle1 circle2"></div>
+            <div id="job" >淘宝美9工</div>
+            <div class="circle1 position"></div>
+            
+            
+        </section>
+    </main>
+</body>
+
+</html>

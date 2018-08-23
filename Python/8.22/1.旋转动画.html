@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转动画</title>
+    <style>
+        main{
+            width: 650px;
+            height: 650px;
+            background-image: url(clock.jpg);
+            background-size: contain;
+            border: 1px solid red;
+            margin: 50px auto;
+            position: relative;
+        }
+        div{
+            position: absolute;
+            width: 180px;
+            height: 10px;
+            background-color: black;
+            border-radius: 4px;
+            top: 320px;
+            left: calc(325px - (180px * 0.8));
+            animation: zhuan 43200s linear infinite;
+            /* origin 起点 原点 */
+            transform-origin: 80% center;
+        }
+        #minute{
+            width: 200px;
+            height: 8px;
+            background-color: red;
+            top: 321px;
+            animation-duration: 3600s;
+            /* calc 计算 里面写计算公式 */
+            left: calc(325px - (200px * 0.8));
+            
+        }
+        #second{
+            width: 220px;
+            height: 6px;
+            background-color: pink;
+            top: 322px;
+            animation-duration: 60s;
+            left: calc(325px - (220px * 0.8))
+        }
+        @keyframes zhuan{
+            from{
+                transform: rotate(0deg)
+            }
+            to{
+                transform: rotate(360deg)
+            }
+        }
+        section{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: rgb(64, 145, 199);
+            left: 310px;
+            top: 310px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <section></section>
+    </main>
+</body>
+</html>

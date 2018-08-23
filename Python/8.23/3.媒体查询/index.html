@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            background-color: black;
+        }
+        /* media媒体 */
+        /* 当前屏幕不大于1300像素的时候 */
+        @media(max-width: 1300px){
+            div{
+                background-color: red;
+            }
+        }
+        @media(max-width: 1000px){
+            div{
+                background-color: blue;
+            }
+        }
+        @media(max-width: 600px){
+            div{
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 媒体查询的主要作用: 是进行页面的适配工作 -->
+    <div>
+
+    </div>
+    <!-- 如果要使用bootstrap.js 一定要确保jquery.js先引入 -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

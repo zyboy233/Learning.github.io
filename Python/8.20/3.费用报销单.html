@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        main{
+            width: 20cm;
+            height: 12cm;
+            border: 1px solid black;
+            margin: 100px auto;
+            /* shadow 阴影
+            值1: 水平方向的偏移距离
+            值2: 垂直方向的偏移距离
+            值3: 模糊程度
+            值4: 颜色*/
+            box-shadow: 5px 5px 5px gray;
+        }
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td{
+            border: 1px solid black;
+            height: 0.8cm;
+            text-align: center;
+            padding: 0;
+        }
+        td:nth-child(1){
+            width: 6cm;
+        }
+        td:nth-child(2),td:nth-child(3){
+            width: 2cm;
+        }
+        td:nth-child(4){
+            width: 3cm;
+        }
+        td:nth-child(5){
+            width: 3.5cm;
+        }
+        h1{
+            /* 设置文本装饰 */
+            border-bottom: 1px solid black;
+            width: 8cm;
+            margin: 20px auto 10px;
+        }
+        caption p{
+            margin: 10px;
+            /* 文版对齐方式 右对齐 */
+            text-align: right;
+        }
+        table table{
+            width: 100%;
+            border: none;
+        }
+        table  table td{
+            /* important 重要 */
+            width: 16.6% !important;
+            border: none;
+            border-right: 1px solid black;
+        }
+        td:nth-child(6){
+            border-right: none;
+        }
+        footer{
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <table>
+            <caption>
+                <!-- 中文空格 -->
+                <h1>费&#x3000用&#x3000报&#x3000销&#x3000单</h1>
+                <p>报销日期&#x3000&#x3000&#x3000&#x3000年&#x3000&#x3000月&#x3000&#x3000日&#x3000&#x3000&#x3000&#x3000&#x3000&#x3000&#x3000附件&#x3000&#x3000张</p>
+            </caption>
+            <!-- 1 -->
+            <tr>
+                <td>费&#x3000;用&#x3000;项&#x3000;目</td>
+                <td>金&#x3000;额</td>
+                <td>类&#x3000;别</td>
+                <td rowspan="2">负责人(签章)</td>
+                <td rowspan="2"></td>
+            </tr>
+            <!-- 2 -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!-- 3 -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="2">审&#x3000;查&#x3000;意&#x3000;见</td>
+                <td rowspan="2"></td>
+            </tr>
+            <!-- 4 -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!-- 5 -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="2">报销人(签章)</td>
+                <td rowspan="2"></td>
+            </tr>
+            <!-- 6 -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!-- 7 -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>¥</td>
+                <td></td>
+            </tr>
+            <!-- 8 -->
+            <tr>
+                <td colspan="5">核实金额(大写)&#x3000;&#x3000; 佰 拾 万 仟 佰 拾 角 分 ¥</td>
+            </tr>
+            <!-- 9 -->
+            <tr>
+                <td rowspan="5">
+                    <table>
+                        <tr>
+                            <td>借款额</td>
+                            <td></td>
+                            <td>应退金额</td>
+                            <td></td>
+                            <td>应补金额</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <footer>
+                &#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;审核&#x3000;&#x3000;出纳
+        </footer>
+    </main>
+</body>
+</html>

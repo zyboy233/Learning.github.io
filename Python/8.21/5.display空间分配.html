@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>display空间分配</title>
+    <style>
+        body{
+            /* 开启弹性布局以后 所有的子标签会在同一行显示 */
+            display: flex;
+        }
+        section{
+            height: 400px;
+            border: 1px solid red;
+            /* 设置每个section的范围 */
+            flex-basis: 25%;
+        }
+        /* 当有标签设置了order值 有的标签没有设置order值
+        那么会先排列所有没有设置order值的标签
+        然后在后面排列设置了order值的标签
+        当两个标签的order值相等的时候
+        先出现的标签会排列在前面 */
+        section:nth-child(1){
+            order: 4;
+        }
+        section:nth-child(2){
+            order: 4;
+        }
+        section:nth-child(3){
+            order: 2;
+        }
+        section:nth-child(4){
+            order: 1;
+        }
+    </style>
+</head>
+<body>
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+</body>
+</html>

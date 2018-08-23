@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>display标签转化</title>
+    <style>
+        div{
+            border: 1px solid red;
+            display: inline;
+        }
+        span{
+            border: 1px solid red;
+            display: block;
+        }
+        /* section{
+            border: 1px solid blue;
+            display: table;
+        }
+        #caption{
+            display: table-caption;
+        } */
+        #first{
+            /* 设置标签消失 标签的位置也消失 */
+            display: none;
+        }
+        #second{
+            /* 隐藏
+            设置标签消失 标签不可见但是位置保留 */
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+
+    <span>a</span>
+    <span>b</span>
+    <span>c</span>
+    <section id="first">
+        <span id="caption">标题</span>
+    </section>
+    <section id="second">world</section>
+    <section id="third">good</section>
+</body>
+</html>

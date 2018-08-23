@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公转</title>
+    <style>
+        html , body{
+            height: 100%;
+            margin: 0;
+            position: relative;
+        }
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            animation: zhuan 5s linear infinite;
+            position: absolute;
+            top:200px;
+            left: 500px;
+            /* transform-origin: -100%; */
+        }
+        @keyframes zhuan{
+            0%{
+                /* transform 后面经常使用的值
+                rotate 旋转 translate 平移 scale 缩放 */
+                transform:scale(0.5)
+            }
+            10%{
+                transform: scale(2.0)
+            }
+            100%{
+                transform: scale(0.5)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

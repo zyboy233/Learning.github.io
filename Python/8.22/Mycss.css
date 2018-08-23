@@ -1,0 +1,56 @@
+@keyframes mine{
+	0%{
+		transform: rotate(0deg);
+		background-color: red;
+	}
+	25%{
+		transform: rotate(90deg);
+		background-color: blue;
+	}
+	50%{
+		transform: rotate(180deg);
+		background-color: pink;
+	}
+	75%{
+		transform: rotate(90deg);
+		background-color: black;
+	}
+	100%{
+		transform: rotate(0deg);
+		background-color: red;
+	}
+}
+
+@keyframes mine2{
+	0%{
+		position: absolute;
+		top: 50px;
+		left: 50px;
+	}
+	50%{
+		position: absolute;
+		top: 50px;
+		left: 350px;
+	}
+	100%{
+		position: absolute;
+		top: 50px;
+		left: 50px;
+	}
+}
+
+.donghua{
+	margin: 20px;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	animation: mine 5s linear infinite;
+	animation-fill-mode: both;
+	transform-origin: 200%;
+}
+
+.pingyi{
+	animation: mine2 5s linear infinite;
+}
+
+
