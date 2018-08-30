@@ -1,0 +1,14 @@
+{
+  "name": "mybasic",
+  "version": "1.0.0",
+  "description": "this is my first text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "张小孩",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

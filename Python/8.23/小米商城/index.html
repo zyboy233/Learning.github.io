@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+    <style>
+        .search {
+            margin: 0;
+            width: 100%;
+            height: 60px;
+        }
+
+        .search2 {
+            margin: 0;
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            line-height: 35px;
+        }
+
+        .search3 {
+            width: 30px;
+            margin-left: 20px;
+            margin-right: 0;
+            font-size: 25px;
+            color: rgb(190, 190, 190);
+        }
+
+        .noborder {
+            width: 75%;
+            border: 0;
+        }
+
+        .border {
+            height: 8px;
+            width: 90%;
+            border: 1px solid #eee;
+            border-top: 0;
+            margin: 5px auto 10px;
+        }
+
+        .inputsize {
+            margin-top: 10px;
+            margin-bottom: 0px;
+            height: 30px;
+            font-size: 25px;
+        }
+
+        .img {
+            width: 100%;
+        }
+
+        #img div {
+            border: 5px solid #eee;
+        }
+
+        .foodswidth {
+            width: 50px;
+        }
+
+        table tr td:nth-child(1) {
+            width: 100px;
+            text-align: center;
+        }
+
+        .xinpin {
+            width: 50px;
+            position: absolute;
+            top: 35px;
+            left: 15px;
+        }
+
+        .footer {
+            padding: 5px;
+            background-color: rgb(245, 245, 245);
+            position: fixed;
+            bottom: 0;
+            height: 70px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="search2">
+            <div>
+                <span class=" search3 glyphicon glyphicon-search"></span>
+                <input type="text" class="inputsize noborder" placeholder="搜索商品名称">
+                <div class="border"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="image/lbt0.jpg" alt="First slide">
+                    <div class="carousel-caption">标题 1</div>
+                </div>
+                <div class="item">
+                    <img src="image/lbt1.jpg" alt="Second slide">
+                    <div class="carousel-caption">标题 2</div>
+                </div>
+                <div class="item">
+                    <img src="image/lbt2.jpg" alt="Third slide">
+                    <div class="carousel-caption">标题 3</div>
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="img" style="background-color: #eee;">
+        <div class="col-lg-4 col-md-6 col-xs-4">
+            <img class="img" src="image/cx0.jpg" alt="">
+        </div>
+        <div class="col-lg-4 col-md-6 col-xs-4 rightborder">
+            <img class="img" src="image/cx1.jpg" alt="">
+        </div>
+        <div class="col-lg-4 col-md-6 col-xs-4">
+            <img class="img" src="image/cx2.jpg" alt="">
+        </div>
+    </div>
+    <br>
+    <div style="margin-top: 120px;">
+
+        <div style=" border-bottom: 1px solid #eee; padding: 10px;">
+            <table>
+                <tr>
+                    <td style="position:relative;">
+                        <img class="foodswidth" src="image/fl1-1.png" alt="">
+                        <img class="xinpin" src="image/xp.png" alt="">
+                    </td>
+                    <td>
+                        <strong>小米手机5</strong><br>
+                        <strong style="color:rgb(158, 158, 158)">骁龙820处理器 / 4GB内存 / 128GB闪存 / 4轴防抖相机 / 3D陶瓷机身</strong><br>
+                        <strong style="color:tomato;font-size: 20px;">1999元 起</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style=" border-bottom: 1px solid #eee; padding: 10px;">
+            <table>
+                <tr>
+                    <td style="position:relative;">
+                        <img class="foodswidth" src="image/fl1-1.png" alt="">
+                        <img class="xinpin" src="image/xp.png" alt="">
+                    </td>
+                    <td>
+                        <strong>小米手机5</strong><br>
+                        <strong style="color:rgb(158, 158, 158)">骁龙820处理器 / 4GB内存 / 128GB闪存 / 4轴防抖相机 / 3D陶瓷机身</strong><br>
+                        <strong style="color:tomato;font-size: 20px;">1999元 起</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style=" border-bottom: 1px solid #eee; padding: 10px;">
+            <table>
+                <tr>
+                    <td style="position:relative;">
+                        <img class="foodswidth" src="image/fl1-1.png" alt="">
+                        <img class="xinpin" src="image/xp.png" alt="">
+                    </td>
+                    <td>
+                        <strong>小米手机5</strong><br>
+                        <strong style="color:rgb(158, 158, 158)">骁龙820处理器 / 4GB内存 / 128GB闪存 / 4轴防抖相机 / 3D陶瓷机身</strong><br>
+                        <strong style="color:tomato;font-size: 20px;">1999元 起</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style=" border-bottom: 1px solid #eee; padding: 10px;">
+            <table>
+                <tr>
+                    <td style="position:relative;">
+                        <img class="foodswidth" src="image/fl1-1.png" alt="">
+                        <img class="xinpin" src="image/xp.png" alt="">
+                    </td>
+                    <td>
+                        <strong>小米手机5</strong><br>
+                        <strong style="color:rgb(158, 158, 158)">骁龙820处理器 / 4GB内存 / 128GB闪存 / 4轴防抖相机 / 3D陶瓷机身</strong><br>
+                        <strong style="color:tomato;font-size: 20px;">1999元 起</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="col-lg-4 col-md-6 col-xs-3">
+                <img style="width:40px;" src="image/page-item.png" alt="">
+                <br>
+                商城
+        </div>
+        <div class="col-lg-4 col-md-6 col-xs-3">
+                <img style="width:40px;" src="image/page-item.png" alt="">
+                <br>
+                分类
+        </div>
+        <div class="col-lg-4 col-md-6 col-xs-3">
+                <img style="width:40px;" src="image/page-item.png" alt="">
+                <br>
+                购物车
+        </div>
+        <div class="col-lg-4 col-md-6 col-xs-3">
+                <img style="width:40px;" src="image/page-item.png" alt="">
+                <br>
+                服务
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- 如果要使用bootstrap.js 一定要确保jquery.js先引入 -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

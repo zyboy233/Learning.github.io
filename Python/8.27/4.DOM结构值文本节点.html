@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--
+        document object model文档对象模型
+        DOM由三部分组成 分别是 标签 标签文本 标签属性 -->
+    <!-- DOM结构  标签组成的树状结构  称之为树状结构 -->
+    <title>DOM结构之文本节点</title>
+</head>
+
+<body>
+    <ul>
+        1 3
+        <li>HTML5</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        4
+        <li>Python</li>
+        2
+    </ul>
+
+    <script>
+        var text = document.querySelector('ul').childNodes[7].nodeValue
+        alert(text)
+        var ul = document.querySelector('ul')
+        alert(ul.childNodes.length)
+
+        for (var i = 0; i < ul.childNodes.length; i++) {
+            // 获取指定节点的名称
+            var node = ul.childNodes[i]
+            // alert(node)
+
+            // 如果该子节点 不是文本节点
+            if (node.nodeType != Node.TEXT_NODE) {
+                // 获取里li标签的所有子节点
+                var lichildNodes = node.childNodes
+                // alert(lichildNodes.length)
+                // 获取li节点的子节点
+                var childNodes = lichildNodes[0]
+                // alert(childNodes.nodeName)
+                // alert(childNodes.nodeValue)
+            }
+        }
+        
+        // 使用nodeValue或者textContent方式来找到文本内容
+        var text_node = ul.childNodes[7].childNodes[0]
+        alert(text_node.textContent)
+
+        // append 追加;添加 data 数据 date
+        text_node.appendData(' so easy')
+        
+        // 值1:插入到指定索引的位置
+        // 值2:插入的内容
+        text_node.insertData(1,'123456')
+        // P123456ython so easy
+        // P12ithon so easy
+        //值1:从指定索引开始
+        // 值2:替换的长度
+        // 值3:替换的内容
+        text_node.replaceData(3 , 5 ,'i')
+        // 值1:开始位置
+        // 值2:删除的内容的长度
+        // P1hon so easy
+        text_node.deleteData(2,3)
+
+        console.log(text_node.length)
+        
+        // sub 子
+        // 获取子字符串
+        // 值1：开始位置
+        // 值2：子字符串的长度
+        console.log(text_node.substringData(1,4))
+
+
+        li = document.getElementsByTagName('li')[3]
+
+        // title = '1111111112312'
+        // title.appendData()
+        // title.replaceData()
+        // title.deleteData()
+        // li.innerText = title
+    </script>
+</body>
+
+</html>

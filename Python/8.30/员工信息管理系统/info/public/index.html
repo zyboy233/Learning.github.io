@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>员工信息管理系统</title>
+    <style>
+        button{
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        button:nth-child(1){
+            background-color: orange;
+        }
+        button:nth-child(2){
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showAllInfo()">展示所有员工信息</button>
+    <button onclick="clickToNewPage()">增加新的员工</button>
+
+
+    <script>
+        function clickToNewPage(){
+            window.location.href = 'new.html'
+        }
+        function showAllInfo(){
+            var main = document.createElement('main')
+            main.style.width = '500px'
+            main.style.backgroundColor = 'orange'
+            main.style.margin = '0 auto'
+           
+            document.body.appendChild(main)
+
+            main.innerText = ''
+            
+            var xhr = new XMLHttpRequest()
+
+            xhr.open('get','/getInfo')
+
+            xhr.send()
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    main.innerText = xhr.responseText
+                }
+            }
+        }
+    </script>
+</body>
+</html>

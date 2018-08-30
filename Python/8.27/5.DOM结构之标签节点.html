@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM结构之标签节点</title>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>qerq
+        <li>JavaScript</li>dsfesa
+        <li>PHP</li>
+        <li>python</li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector('ul')
+        var ul = document.querySelectorAll('ul')[0]
+        var ul = document.getElementsByTagName('ul')[0]
+        // 获取标签节点和文本节点
+        var li2 = ul.childNodes[3].childNodes[0].nodeValue
+        // alert(li2)
+        
+        // 只获取标签节点
+        var li2 = ul.children[3].childNodes[0].nodeValue
+        // alert(li2)
+
+        var li2 = ul.children[1]
+        // 获取标签以及标签里面全部内容
+        // alert(li2.outerHTML)
+
+        // 获取上一个兄弟节点
+        // alert(li2.previousSibling.nodeValue)
+        // 获取下一个兄弟节点
+        // alert(li2.nextSibling.nodeValue)
+
+        // alert(li2.firstChild.nodeValue)
+        // alert(li2.lastChild.nodeValue)
+
+        var li3 = document.createElement('li')
+        li3.innerText = 'UI'
+        ul.appendChild(li3)
+
+        // var removeChild = ul.removeChild(ul.firstElementChild)
+
+        ul.appendChild(removeChild)
+        
+        
+        var newli = ul.firstElementChild
+        var oldli = ul.lastElementChild
+        // 替换
+        ul.replaceChild(newli,oldli)
+
+        var li = document.createElement('li')
+        li.innerText = 'node'
+        ul.insertBefore(li , ul.firstElementChild)
+    </script>
+</body>
+</html>

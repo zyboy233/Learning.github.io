@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xhr之get,post请求</title>
+</head>
+<body>
+    <!-- <form action="/login">
+        <input type="submit">
+    </form> -->
+
+    <!-- 
+    xhl
+    XMLHTTPRequest 时ajax的核心
+    ajax是数据请求方式的一种
+    特点:
+    1.前端可以发送数据到后端
+    2.可以接受从后端发送过来的数据
+    3.可以解析从后端传过来的数据
+    3.可以对页面进行局部刷新操作
+    -->
+    <button onclick="get()">xhr之get请求</button>
+    <button onclick="post()">xhr之post请求</button>
+
+    <script>
+        function get(){
+            // 创建一个数据请求的实例化对象
+            var xhr =new XMLHttpRequest()
+
+            // on 在...时候
+            // ready 准备
+            // state 状态
+            // change 改变
+            // 在xhr的准备状态发生改变时 调用该方法
+            xhr.onreadystatechange = function(){
+                // 判断xhr的准备状态
+                switch(xhr.readyState){
+                    case 0:{
+                        console.log('open方法已经调用, 但是send方法没有调用')
+                        break
+                    }
+                    case 1:{
+                        console.log('send方法已经调用, 但是服务器并没有返回数据')
+                        break
+                    }
+                    case 2:{
+                        console.log('send方法已经调用, 服务器开始返回数据')
+                        break
+                    }
+                    case 3:{
+                        console.log('服务器已经返回部分数据')
+                        break
+                    }
+                    case 4:{
+                        console.log('服务器已经返回全部数据')
+                        console.log(xhr.response)
+                        console.log(xhr.responseText)
+                        console.log(xhr.responseURL)
+                        console.log(xhr.status)
+                        console.log(xhr.statusText)
+                        console.log(xhr.getAllResponseHeaders())
+                        break
+                    }
+                }
+            }
+            // open方法里面两个参数
+            // 参数1:数据请求方式 get post
+            // 参数2:请求的接口 参数才接口后面进行拼接
+            xhr.open('get','/getTest?name=妹子UI&des=前端app框架')
+            
+            // 发送数据到后端
+            xhr.send()
+            
+            
+            
+        }
+        
+        function post(){
+            var xhr = new XMLHttpRequest()
+            // post请求方式 接口后面不能追加参数
+            xhr.open('post','/postTest')
+
+            // 如果使用post请求方式 而且参数是以key=value这种方式提交的
+            // 那么需要设置请求头的类型
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send('star=1&des=东西很好,价格公道,但是差评,人生就是这么奇妙')
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    console.log(xhr.responseText)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

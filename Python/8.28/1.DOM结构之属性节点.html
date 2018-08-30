@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM结构之属性节点</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .size{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.baidu.com" target="_blank" id="baidu" class="red bold size" title="baidu">百度一下,你就知道</a>
+
+    <script>
+        var a = document.getElementById('baidu')
+        console.log(a)
+        // alert(a.attributes)
+        for(var i = 0;i < a.attributes.length; i ++)
+        {
+            var attr = a.attributes[i]
+            // 获取每一个属性的值
+            // alert(attr.value)
+            // 分别获取每一个属性名称
+            // alert(attr.name)
+        }
+
+        // 获取指定的属性 getAttribute 
+        var target  = a.getAttribute('target')
+        // alert(target)
+
+        a.setAttribute('title','百度一下 啥都忘了')
+        // alert(a.title)
+
+        a.href = 'https:www.jd.com'
+        // 移除指定的属性
+        a.removeAttribute('href')
+        // 判断是否包含指定的属性
+        alert(a.hasAttribute('href'))
+        // 判断是否有任意属性
+        alert(a.hasAttributes())
+
+        alert(a.classList)
+        // 从列表中移除指定的类名
+        a.classList.remove('red')
+        // 增加指定的类名到列表中
+        a.classList.add('red')
+        // 判断列表是否包含指定的类名
+        alert(a.classList.contains('red'))
+        // toggle 切换;开关
+        // 判断是否包含某个类名 如果包含 择删除
+        // 如果没有包含 则添加
+        a.classList.toggle('red')
+        a.classList.toggle('red')
+
+        // 所有再style标签里面写的属性
+        // 都可以通过这种方式来写
+        a.style.fontSize = '200px';
+        a.style.backgroundColor = 'blue'
+        a.style.fontFamily = '时尚中黑简体'
+    </script>
+</body>
+</html>

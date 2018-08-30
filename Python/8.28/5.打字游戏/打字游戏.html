@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="animate.css">
+    <title>打字游戏</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+        }
+
+        body {
+            /* linear-gradient() 线性渐变 */
+            /* 设置背景为径向渐变 */
+            background: radial-gradient(circle, #333, #000, #000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #char {
+            font-size: 400px;
+            color: greenyellow;
+            text-shadow: 0px 0px 15px red;
+        }
+
+        #result {
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="char">H</div>
+        <div id="result">正确个数0,错误个数0,正确率100%</div>
+    </main>
+    <script src="jquery.js"></script>
+    <script>
+        var char = document.getElementById('char')
+        var result = document.getElementById('result')
+        var charnum = 0
+        var errorNum = 0
+        var trueNum = 0 
+        
+        function showChar() {
+            var random = Math.random() * 26;
+            random = Math.floor(random) + 65
+            // 获取数字在ASCII码表中所对应的字母
+            var zimu = String.fromCharCode(random)
+            char.innerText = zimu
+            charnum = random
+        }
+        showChar()
+        // window.onkeydown = function (e) {
+        //     if (charnum == e.keyCode) {
+        //         trueNum += 1
+        //         result.innerText = '正确个数' + trueNum + ',错误个数' + errorNum + ',正确率' + trueNum / (errorNum + trueNum)
+        //         char.classList.add('zoomIn')
+        //         setTimeout(function () {
+        //             char.classList.remove('zoomIn')
+        //         }, 800)
+        //         showChar()
+        //     }
+        //     else {
+        //         errorNum += 1
+        //         setTimeout(function () {
+        //             char.classList.remove('shake')
+        //         }, 800)
+        //         result.innerText = '正确个数' + trueNum + ',错误个数' + errorNum + ',正确率' + trueNum / (errorNum + trueNum)
+        //         char.style.color = 'red'
+        //         char.style.textShadow = '0px 0px 15px greenyellow'
+        //         char.classList.add('shake')
+        //         setTimeout(function () {
+        //             char.style.color = 'greenyellow'
+        //             char.style.textShadow = '0px 0px 15px red'
+        //         }, 800)
+        //     }
+        // }
+
+
+        // window.onkeydown = function (e) {
+        //     if (charnum == e.keyCode) {
+        //         setTimeout(function () {
+        //             $('#char').removeClass('zoomIn')
+        //         }, 800)
+        //         trueNum += 1
+        //         $('#char').addClass('zoomIn')
+        //         $('#result').text('正确个数' + trueNum + ',错误个数' + errorNum + ',正确率' + (Math.round((trueNum*100 / (errorNum + trueNum))) )/ 100)
+        //         showChar()
+        //     }
+        //     else {
+        //         errorNum += 1
+        //         $('#char').addClass('shake')
+        //         $('#char').css('color', 'red').css('textShadow', '0px 0px 15px greenyellow')
+        //         $('#result').text('正确个数' + trueNum + ',错误个数' + errorNum + ',正确率' + (Math.round((trueNum*100 / (errorNum + trueNum))) )/ 100)
+        //         setTimeout(function () {
+        //             $('#char').removeClass('shake').css('color', 'greenyellow').css('textShadow', '0px 0px 15px red')
+        //         }, 800)
+        //     }
+        // }
+        
+        window.onkeyup = function(e){
+            var keyCode = e.keyCode
+            if (keyCode == charnum){
+                // 重新出现一个新的字母
+                showChar()
+                // 正确数量增加
+                trueNum ++
+                // 出现动画
+                char.className = 'animated zoomIn'
+                // 延时0.5秒钟清除动画效果
+                // 否则标签一直有之前的动画效果  那么就不再执行新的动画
+                setTimeout(clearAnimation,500)
+            }
+            else{
+                errorNum ++
+
+                char.className = 'animated shake'
+
+                setTimeout(clearAnimation,500)
+
+                char.style.color = 'red';
+
+                setTimeout(function(){
+                    char.style.color = 'greenyellow'
+                },500)
+
+            }
+            percent = trueNum / (trueNum + errorNum) * 100
+            result.innerText = '正确个数是' + trueNum +  ',错误个数是' + errorNum +
+            ',正确率是' + percent.toFixed(2) + '%'
+        }
+        function clearAnimation(){
+            char.className = 'animated'
+        }
+
+        // 1.获取键盘的事件
+        // 2.对比按下的键 和 屏幕上显示的字母
+        // 3.一致 出现随机字母 动画(添加类名) 正确率
+        // 4.不一致 动画(添加类名) 正确率
+    </script>
+</body>
+
+</html>

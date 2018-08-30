@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            background-color: #eee;
+        }
+
+        header {
+            height: 15vw;
+            border-bottom: 1px solid lightgray;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header div {
+            width: 25vw;
+            height: 100%;
+
+            text-align: center;
+            line-height: 15vw;
+            font-size: 5vw;
+            color: gray;
+        }
+
+        #top {
+            width: 100%;
+            height: 28vw;
+            background-color: rgb(255, 107, 0);
+            position: relative;
+        }
+
+        .head {
+            width: 25vw;
+            height: 25vw;
+            border-radius: 50%;
+            position: absolute;
+            margin: 10vw 37%;
+            padding: 0.5vw;
+            background-color: white;
+        }
+
+        .headin {
+            width: 24vw;
+            height: 24vw;
+            border: 1px solid orange;
+            border-radius: 50%;
+            top: 1vw;
+        }
+
+        #middle {
+            background-color: white;
+            width: 100%;
+            height: 35vw;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #middle>div {
+            box-sizing: border-box;
+            height: 25vw;
+            flex-grow: 1;
+
+            text-align: center;
+        }
+
+        #middle>div:nth-child(2) {
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+        }
+
+        .bottom {
+            height: 2.5vw;
+            width: 10vw;
+            border-bottom: 0.5vw solid orange;
+            margin: 2vw 35% 0;
+        }
+
+        #middle>div:nth-child(2) div {
+            border-bottom: 0.5vw solid blue;
+        }
+
+        #middle>div:nth-child(3) div {
+            border-bottom: 0.5vw solid red;
+        }
+
+        footer {
+            margin-top: 5vw;
+            width: 100%;
+        }
+
+        .item {
+            width: 100%;
+            height: 15vw;
+            background-color: white;
+            line-height: 15vw;
+            border-bottom: 1px solid lightgray;
+            font-size: 5vw;
+        }
+        .item img{
+            width: 8vw;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        <div>个人中心</div>
+        <div>
+            <span class="glyphicon glyphicon-search"></span>
+        </div>
+    </header>
+
+    <div id="top">
+        <div class="head">
+            <div class="headin"></div>
+        </div>
+    </div>
+    <div id="middle">
+        <div>
+            <img src="image/danzi.png" alt="">
+            <br> 全部订单
+            <div class="bottom"></div>
+        </div>
+        <div>
+            <img src="image/danzi.png" alt="">
+            <br> 待付款
+            <div class="bottom"></div>
+        </div>
+        <div>
+            <img src="image/danzi.png" alt="">
+            <br> 待收货
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="item">
+            &nbsp;
+            <img src="image/danzijiao.png" alt=""> 我的优惠
+        </div>
+        <div class="item">
+            &nbsp;
+            <img src="image/danzijiao.png" alt=""> F码通道
+        </div>
+        <br>
+        <div class="item">
+            &nbsp;
+            <img src="image/danzijiao.png" alt=""> 我的服务
+        </div>
+        <br>
+        <div class="item">
+            &nbsp;
+            <img src="image/danzijiao.png" alt=""> 设置
+        </div>
+    </footer>
+    <!-- 如果要使用bootstrap.js 一定要确保jquery.js先引入 -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

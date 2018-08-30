@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xhr之form请求</title>
+</head>
+
+<body>
+    <button onclick="form1()">xhr之form请求</button>
+
+    <script>
+        function form1() {
+
+            var xhr = new XMLHttpRequest()
+
+            // 初始化一个form对象
+            var form = new FormData()
+
+            form.append('name', '小青年')
+            form.append('age', '17')
+            form.append('fond', '玩')
+
+            xhr.open('post', '/test')
+
+            xhr.send(form)
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

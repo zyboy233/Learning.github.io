@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标签获取</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="shijian" class="red" name="user">div</div>
+    <div id="riqi" class="blue" name='password'>div2</div>
+    <script>
+        // 通过id名字来找到指定的标签
+        var shijian = document.getElementById('shijian')
+        console.log(shijian)
+        shijian.innerText = 'hello world'
+
+        // 通过类名找到指定的标签集合
+        // byClassName 找到的是HTMLCollectoin
+        var shijian1 = document.getElementsByClassName('red')
+        console.log(shijian1)
+
+        // byName 找到的是 NodeList 节点列表
+        var shijian2 = document.getElementsByName('user')[0]
+        console.log(shijian2)
+
+        // byTagName  HTMLCollection
+        var shijian3 = document.getElementsByTagName('div')[1]
+        console.log(shijian3)
+
+        // 找到所有符合标签的第一个
+        var shijian4 = document.querySelector('div')
+        console.log(shijian4)
+
+        // NodeList
+        var shijian5 = document.querySelectorAll('div')
+        console.log(shijian5)
+
+        shijian.innerText = "nice to meet you"
+
+        shijian.innerText = "<h1>strong</h1>"
+
+        shijian.innerHTML = "<h1>strong</h1>"
+    </script>
+</body>
+
+</html>

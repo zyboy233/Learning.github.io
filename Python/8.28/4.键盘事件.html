@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>键盘事件</title>
+</head>
+
+<body>
+    <script>
+        window.onkeydown = function (e) {
+            // console.log(e.key)
+            // console.log(e.keyCode)
+            // if (e.keyCode == 87) {
+            //     console.log('往前走')
+            // }
+            // else if (e.keyCode == 65) {
+            //     console.log('往左走')
+            // }
+            // if (e.keyCode == 65 && e.ctrlKey) {
+            //     console.log('全选')
+            // }
+            // if (e.keyCode == 65 && e.ctrlKey && e.shiftKey) {
+            //     console.log('随便写的')
+            // }
+        }
+
+        window.onkeyup = function(){
+            console.log('弹上')
+        }
+        window.onkeypress = function(){
+            console.log('按压')
+        }
+    </script>
+</body>
+
+</html>

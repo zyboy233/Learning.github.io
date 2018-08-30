@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>员工信息管理系统</title>
+    <style>
+        button {
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button:nth-child(1) {
+            background-color: orange;
+        }
+
+        button:nth-child(2) {
+            background-color: yellowgreen;
+        }
+
+        .show {
+            width: 500px;
+            background-color: orange;
+            margin: 0 auto;
+            box-sizing: border-box;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="showAllInfo()">展示所有员工信息</button>
+    <button onclick="clickToNewPage()">增加新的员工</button>
+    <main class="show"></main>
+
+    <script>
+        function clickToNewPage() {
+            window.location.href = 'new.html'
+        }
+        function showAllInfo() {
+
+            var main = document.getElementsByClassName('show')[0]
+
+            var xhr = new XMLHttpRequest()
+
+            xhr.open('get', '/getInfo')
+
+            xhr.send()
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    var infoAll = ''
+                    //  分割
+                    strList = xhr.response.split(',\n')
+                    // 遍历
+                    for (var i = 0; i < strList.length; i++) {
+                        var info = ''
+                        // json字符串转化为json对象
+                        strJson = JSON.parse(strList[i])
+                        name = strJson['data']['name']
+                        code = strJson['data']['code']
+                        job = strJson['data']['job']
+                        card = strJson['data']['job']
+                        tel = strJson['data']['tel']
+                        time = strJson['data']['time']
+                        info = '用户:' + name + ',编号:' + code + ',职位:' + job + ',银行卡:' + card + ',tel:' + tel + ',入职时间:' + time + '\n'
+                        infoAll += info
+                    }
+                    alert('刷新成功')
+                    setTimeout(function () {
+                        main.innerText = ''
+                    }, 200)
+                    setTimeout(function () {
+                        main.innerText = infoAll
+                    }, 300)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习</title>
+</head>
+<body>
+    <ul>
+        1
+        <li>第1个li</li>3
+        <li>第2个li</li>5
+        <li>第3个li</li>7
+    </ul>
+
+    <script>
+        var ul = document.querySelector('ul')
+        var text_node1 = ul.childNodes[0].nodeValue
+        console.log(text_node1)
+        
+        var li1 = ul.childNodes[1]
+        console.log(li1)
+
+        var text_node3 = ul.childNodes[2].nodeValue
+        console.log(text_node3)
+
+        var firstNode = ul.firstElementChild
+        var lastNode = ul.lastElementChild
+        console.log(firstNode)
+        console.log(lastNode)
+
+        var li3 = ul.children[2].childNodes[0].nodeValue
+        console.log(li3)
+
+        li3 = ul.children[2]
+        console.log(li3.outerHTML)
+
+        var li2 = li3.previousSibling.previousSibling
+        console.log(li2)
+
+        li1 = li2.previousSibling
+        console.log(li1.nodeValue)
+
+        var li3 = ul.lastChild.previousSibling
+        console.log(li3)
+
+        var newli = document.createElement('li')
+        newli.innerText='newli'
+
+        // ul.replaceChild(newli,li3)
+
+        // ul.appendChild(newli)
+
+        ul.insertBefore(newli,ul.childNodes[1])
+    </script>
+</body>
+</html>
