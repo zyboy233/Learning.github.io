@@ -8,6 +8,7 @@
     <style>
         button{
             border: 1px solid black;
+            
             border-radius: 5px;
         }
         button:nth-child(1){
@@ -45,7 +46,19 @@
 
             xhr.onreadystatechange = function(){
                 if(xhr.readyState == 4){
-                    main.innerText = xhr.responseText
+                    var obj = xhr.responseText
+                    var infoString = obj.substr(0,obj.length-2)
+                    var allInfo = '[' + infoString + ']'
+                    var jsonInfo = JSON.parse(allInfo)
+                    var content = ''
+                    for(var index = 0;index <jsonInfo.length;index++){
+                        var info = jsonInfo[index]
+
+                        content += '员工姓名:'+info.data.name + ',员工编号:'+info.data.code+
+                        ',员工职位:'+info.data.job+',员工卡号:'+info.data.card+',员工联系方式:'+
+                        info.data.tel+',员工入职时间:' + info.data.time + '<br><br>'
+                    }
+                    main.innerHTML = content
                 }
             }
         }

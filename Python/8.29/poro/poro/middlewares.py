@@ -5,7 +5,47 @@
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
+from fake_useragent import UserAgent
 from scrapy import signals
+from selenium import webdriver
+from scrapy.http.response.html import HtmlResponse
+
+class RandomUserAgentMiddleware(object):
+    def __init__(self,crawler):
+        super(RandomUserAgentMiddleware).__init__()
+        self.ua = UserAgent()
+        # 从配置文件settings中读取Random_ua_type值,如果不存在
+        # 则采用默认的random进行随机
+        self.ua_type = crawler.settings.get('RANDOM_UA_TYPE','random')
+
+    # 创建爬虫开始的方法
+    # 注意: 方法和参数必须和系统方法和参数保持一致
+    @classmethod
+    def from_crawler(cls, crawler):
+        # 返回当前response的对象
+        print('-----------------------------------')
+        return cls(crawler)
+    # 当进程进行请求的时候
+    def process_request(self, request, spider):
+        print('+++++++++++++++++++++++++++++++++++')
+        def user_agent():
+            return getattr(self.ua, self.ua_type)
+        request.headers.setdefault('User-Agent', user_agent())
+
+
+class MyDownloadMiddleware(object):
+    def __init__(self):
+        self.driver = webdriver.Chrome()
+    def process_request(self,request,spider):
+        if spider.name == 'po':
+            spider.driver.get(request.url)
+            print('++++++++++++++++++++')
+            for i in range(1,5):
+                i = float(i) / 4
+                js = 'document.body.scrollTop = document.body.scrollHeight * %f' % i
+                self.driver.execute_script(js)
+            return HtmlResponse(url=request.url,body=spider.driver.page_source,encoding='utf-8',request=request)
+
 
 
 class PoroSpiderMiddleware(object):

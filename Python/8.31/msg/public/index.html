@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言板</title>
+    <style>
+        body,
+        html {
+            margin: 0 10px;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        .msg {
+            /* width: 100%; */
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>我的留言板</h1>
+    <textarea name="msg" id="" cols="100" rows="10"></textarea>
+    <br>
+    <button onclick="leaveMsg()">留言</button>
+    <main>
+
+    </main>
+    <script>
+        function leaveMsg() {
+            var msg = document.getElementsByName('msg')[0].value
+            if(msg == ''){
+                alert('留言不能为空')
+                return ;
+            }
+            var main = document.getElementsByTagName('main')[0]
+            var xhr = new XMLHttpRequest()
+            var form = new FormData()
+
+            var time = new Date()
+            var currentTime = time.getFullYear() + '年' +
+                ((time.getMonth() + 1) + '月' + time.getDate() + '日') +
+                (time.getHours() < 10 ? '0' + time.getHours() : time.getHours())
+                + ':' +
+                (time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes())
+                + ':' +
+                (time.getSeconds() < 10 ? '0' + time.getSeconds() : time.getSeconds())
+            form.append('msg', msg)
+            form.append('time', currentTime)
+
+            console.log(msg, currentTime)
+            xhr.open('post', '/newmsg')
+            xhr.send(form)
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.responseText == '留言成功') {
+                        var div = document.createElement('div')
+                        div.classList.add('msg')
+                        div.innerHTML = '留言时间: ' + currentTime + '<br>' + '留言内容: ' + msg
+                        alert('留言成功')
+                        document.getElementsByName('msg')[0].value = ''
+                        main.appendChild(div)
+                    }
+                    else {
+                        alert('留言失败')
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
