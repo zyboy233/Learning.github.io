@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言板</title>
+    <style>
+        textarea{
+            resize: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>python9期留言板</h1>
+    <textarea name="message" id="" cols="30" rows="10"></textarea>
+    <button onclick="sendMessage()">留言</button>
+    <script>
+        // 获取标签 而非标签内容
+        var textarea = document.querySelector('textarea')
+
+        function sendMessage(){
+            // 获取文本区域的内容
+            var message = textarea.value 
+            
+            // 获取当前最新的时间
+            var time = new Date()
+            var year = time.getFullYear()
+            var month = time.getMonth() +1
+            var day = time.getDate()
+            var hours = time.getHours()
+            var minutes = time.getMinutes()
+            var seconds = time.getSeconds()
+            var newTime = year +'年' + month +'月' + day + 
+            '日 ' + hours + ':' + minutes +':' + seconds 
+            
+            //传输数据到服务器
+            var xhr = new XMLHttpRequest()
+            // get  简单 ，不安全 数据量少 且不私密
+            // form  数据量多 且私密 用form
+            xhr.open('get','/messageSend?content=' + message + '&time=' + newTime)
+            xhr.send()
+
+            // 获取响应
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4)
+                {
+                    // // 获取服务器响应并且将数据转化成json
+                    var jsonData = JSON.parse(xhr.responseText)
+                    console.log(jsonData)
+                    if(jsonData.status == 200)
+                    {
+                        console.log('留言成功')
+                    }
+                    else{
+                        console.log('留言失败')
+                    }
+
+                    window.location.href = 'http://localhost:8000'
+                }
+            }
+        }
+        
+        getAllMessage()
+        function getAllMessage(){
+            var xhr = new XMLHttpRequest()
+            xhr.open('get','/allMessage')
+            xhr.send()
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4)
+                {
+                    console.log(xhr.responseText)
+                    var allMessage = JSON.parse(xhr.responseText)
+                    console.log(allMessage)
+
+                    for(var index = 0 ; index < allMessage.length ;index++)
+                    {
+                        var messageBox = document.createElement('div')
+                        messageBox.style.borderRadius = '5px'
+                        messageBox.style.margin = '5px'
+                        messageBox.style.border = '1px solid black'
+                        messageBox.style.padding = '5px'
+                        messageBox.innerHTML = '留言内容:' + allMessage[index].content +  
+                        '<br>'+ '留言时间:' + allMessage[index].time
+                        document.body.appendChild(messageBox)
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

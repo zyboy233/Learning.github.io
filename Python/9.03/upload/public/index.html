@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传头像</title>
+    <style>
+        body{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- get : 1.不安全  参数在url中,直接可看
+            2.url长度为1KB, 1KB = 1024B 1B=8byte
+        post: 2.相对安全 参数在请求体中 不能直接观看
+            2.长度理论上没有限制,但是具体要看服务器的容量 
+    enctype encode type 编码类型    
+    -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" accept="image/jpg,image/png,image/jpeg,image/gif"
+        required = 'required' name="photo">
+        
+        <input id="sub" type="submit" value="上传头像">
+    </form>
+    <script>
+        var sub = document.getElementById('sub')
+        
+        // 增加一个时间监听对象
+        sub.addEventListener('click',function(){
+            setTimeout(function(){
+                window.location.href = 'http://localhost:8080'
+            },100)
+            getHeader()
+        })
+
+        function getHeader(){
+            var xhr = new XMLHttpRequest()
+
+            xhr.get('get','/getHeader')
+            xhr.send()
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    var headers = document.createElement('img')
+                    headers.style.width = '200px'
+                    headers.style.height= '200px'
+                    headers.style.borderRadius = '50%'
+                    headers.style.border = '10px solid white'
+
+                    headers.src = xhr.responseText
+                    document.body.appendChild(headers)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
