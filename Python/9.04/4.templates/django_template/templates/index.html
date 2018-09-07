@@ -1,0 +1,79 @@
+{% load test %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+</head>
+<body>
+    {# 注释 #}
+    {# {{ XXX }}获取XXX变量的值 #}
+    <h1>现在显示的是{{name}}的信息</h1>
+    {# 设置时间格式 #}
+    <h2>现在的时间是:{{today | date:'Y-m-d H:i:s'}}</h2>
+    <h2>我的朋友叫做 name = {{ friend.name }},今年{{ friend.age }}岁</h2>
+
+    {# {% %} 用来进行条件判断以及循环 #}
+    {% if friend.age < 50 %}
+        <h3>年龄小于50岁</h3>
+    {% elif friend.age < 100 %}
+        <h3>年龄小于100岁</h3>
+    {% else %}
+        <h3>超出年龄范围</h3>
+    {% endif %}
+
+    <ul>
+        <li>{{font_list.0}}</li>
+        <li>{{font_list.1}}</li>
+        <li>{{font_list.2}}</li>
+        <li>{{font_list.3}}</li>
+        <li>{{font_list.4}}</li>
+    </ul>
+
+    <ul>
+        {% for font in font_list %}
+            <li>我的爱好是{{font}}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for study in study_list %}
+            <!--  | 过滤器-->
+            <!--upper 转化成大写  lower 转化成小写
+            系统过滤器-->
+            <li>学习内容:{{study | upper | lower}}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        <!--reversed 相反的-->
+        {% for font in font_list reversed %}
+            <li>{{font}}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for study in study_list %}
+            {# loop 循环 如果循环当中的第一个内容 #}
+            {% if forloop.first %}
+                <h2>循环要开始了</h2>
+            {% endif %}
+            <li>循环内容:{{study}}</li>
+            {% if forloop.last %}
+                <h2>循环要结束了</h2>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for study in study_list %}
+            {# forloop.counter 获取数据索引 revcounter 相反索引 #}
+            <li>{{forloop.revcounter}}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>{{girl_friend | girl_des}}</h1>
+    {# json格式的数据调用属性也是通过这种方式 #}
+    <h2>{{girl_friend.name}}</h2>
+</body>
+</html>

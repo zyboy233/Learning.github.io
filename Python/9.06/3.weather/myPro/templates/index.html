@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{{city}}天气</title>
+    <style>
+        html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            margin: 0;
+            text-align: center;
+            background:linear-gradient(rgb(16, 119, 199),rgb(113, 150, 180));
+            color: white;
+            height: 100%;
+            width:100%;
+        }
+        .top{
+            color: #000;
+        }
+        .mid{
+            margin: 50px auto 100px;
+        }
+        .mid div:nth-child(1){
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        .temp{
+            font-size: 40px;
+            margin: 5px auto 5px;
+        }
+        .mid img{
+            height: 50px;
+        }
+        section{
+            border-right: 1px solid yellow;
+        }
+        .bot section:nth-child(3){
+            border-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top">
+        <form action="/weather/" method="post">
+            {% csrf_token %}
+            <input name="city" type="text" placeholder="请输入城市名称">
+            <button type="submit">查询</button>
+        </form>
+    </nav>
+    <div class="mid">
+        <div>实时天气</div>
+        <img src="{{current.dayPictureUrl}}" alt="">
+        <div class="temp">{{current.temperature}}</div>
+        <div>{{current.weather}}</div>
+        <div>{{current.wind}}</div>
+        <div>{{current.date}}</div>
+    </div>
+    <div class="bot">
+        {% for weather in weather_datas %}
+            <section class='col-lg-4 col-md-4 col-sm-4'>
+                <div>{{weather.date}}</div>
+                <img src="{{weather.dayPictureUrl}}" alt="">
+                <div>{{weather.temperature}}</div>
+                <div>{{weather.weather}}</div>
+                <div>{{weather.wind}}</div>
+            </section>
+        {% endfor %}
+    </div>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

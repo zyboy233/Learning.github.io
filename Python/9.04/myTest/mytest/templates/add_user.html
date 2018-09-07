@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+</head>
+<body>
+<h1>添加用户信息</h1>
+<form action="/index/receive" method="get">
+    <label for="">姓名:</label>
+    <input type="text" name="q" placeholder="请输入姓名">
+    <br>
+    <label for="">年龄:</label>
+    <input type="text" name="p" placeholder="请输入年龄">
+    <input type="submit">
+</form>
+{% if message %}
+    <h1>{{ message }}</h1>
+{% endif %}
+</body>
+</html>

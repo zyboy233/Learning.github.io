@@ -1,0 +1,27 @@
+{# 继承模板里面所有的代码 #}
+{% extends 'base.html' %}
+
+{% block style %}
+<!--<style>-->
+    <!--*{-->
+        <!--color: yellow !important;-->
+    <!--}-->
+<!--</style>-->
+{% endblock style %}
+
+{% block nav_color %}
+<nav class="navbar navbar-inverse" role="navigation">
+{% endblock nav_color %}
+
+{% block body %}
+    <h1>女生频道:后宫,总裁,美文,言情</h1>
+{% endblock body %}
+
+{% block script %}
+    <script>
+        $('#des').css({
+            'color': 'greenyello',
+            'font-size':'50px'
+        })
+    </script>
+{% endblock script %}

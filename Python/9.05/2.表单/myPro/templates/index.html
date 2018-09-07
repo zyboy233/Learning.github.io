@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/add/" method="post">
+    {# 如果使用form表单并且进行post请求的时候 csrf 一定要加 它是黑客进行跨域攻击的一种重要手段 post请求接口后面需要追加另外一个/ #}
+    {% csrf_token %}
+    <label for="">num0</label>
+    <input type="text" name="c1">
+    {{ form }}
+    <button type="submit" value="">提交</button>
+</form>
+</body>
+</html>

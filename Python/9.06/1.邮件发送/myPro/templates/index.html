@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邮件发送</title>
+</head>
+<body>
+    <form action="/sendHtml/" method="post">
+        {% csrf_token %}
+        <button type="submit">发送邮件</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post</title>
+</head>
+<body>
+<h1>添加用户:</h1>
+<form action="/index/post" method="post">
+    {% csrf_token %}
+    <label for="">姓名:</label>
+    <input type="text" name="q" placeholder="请输入姓名">
+    <br>
+    <label for="">年龄:</label>
+    <input type="text" name="p" placeholder="请输入年龄">
+    <input type="submit">
+</form>
+{% if rlt %}
+<h1>添加成功:{{ rlt }}</h1>
+{% endif %}
+</body>
+</html>

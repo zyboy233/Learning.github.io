@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -6,7 +7,7 @@ urlpatterns = [
     # http://localhost:8000/index/justtest/?id=100&name=lisi
     url('justtest/',views.justTest),
     url(r'second/(\d+)/(\w+)',views.second),
-
+    # path(r'second/<mid>/<name>',views.second),
     # ?P<a> 赋值
     # http://localhost:8000/index/third/1000/2000/hello
     url(r'third/(?P<a>\d+)/(?P<b>\d+)/(?P<name>\w+)',views.third)

@@ -5,5 +5,9 @@
       <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
     </data-source>
+    <data-source name="db [2]" uuid="579606e2-818c-406e-aec3-56c8404a07ef">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+    </data-source>
   </component>
 </project>

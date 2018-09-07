@@ -1,0 +1,27 @@
+{% load test %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        *{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>本标题来自模板base.html</h1>
+    {% block content %}
+        此部分内容用于替换
+    {% endblock content %}
+
+    <ul>
+        {% for friend in my_friends %}
+            <li>我的朋友:{{ friend }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>我的女朋友叫{{ my_girl_friend.name }},今年{{ my_girl_friend.age }}岁,家里{{ my_girl_friend | addcontent }}矿.</h1>
+</body>
+</html>

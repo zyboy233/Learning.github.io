@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {# 使用静态资源里面指定的文件 #}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>{{ title }}</title>
+    {% block style %}
+    <style>
+        *{
+            color: red !important;
+        }
+    </style>
+    {% endblock style %}
+</head>
+<body>
+    {# nav_color 自定义 #}
+    {% block nav_color %}
+    <nav class="navbar navbar-default" role="navigation">
+    {% endblock nav_color %}
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">菜鸟教程</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">iOS</a></li>
+            <li><a href="#">SVN</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Java <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">jmeter</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li><a href="#">Jasper Report</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分离的链接</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">另一个分离的链接</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+    {% block body %}
+        <h1>男生频道:武侠,仙侠,穿越,军事,历史,科幻</h1>
+    {% endblock body %}
+
+    <h1 id="des">这是一个专门为自己定制的网站</h1>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    {% block script %}
+    <script>
+        $('#des').css({
+            'color':'blue',
+            'font-size':'100px'
+        })
+    </script>
+    {% endblock script %}
+</body>
+</html>
