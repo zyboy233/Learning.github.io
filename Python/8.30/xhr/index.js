@@ -1,9 +1,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-
 var web = express()
-
-
 web.use(express.static('public'))
 web.use(bodyParser.urlencoded({extended:false}))
 
@@ -16,12 +13,9 @@ web.get('/getTest',function(req,res){
         res.send('听说有一种' + des + "非常厉害,叫做" + name)
     },2000)
 })
-
 web.post('/postTest',function(req,res){
     var star = req.body.star
     var des = req.body.des
-    console.log(star)
-    console.log(des)
 
     setTimeout(function(){
         res.send('商品评价成功')

@@ -5,7 +5,7 @@ var web = express()
 var form = multer()
 web.use(express.static('public'))
 web.use(bodyParser.urlencoded({extended:false}))
-// 如果使用的时FormDat这种数据提交方式的话
+// 如果使用的时FormData这种数据提交方式的话
 // 那么需要multer里面的array()方法进行数据剥离
 web.post('/test',form.array(),function(req,res){
     name = req.body.name

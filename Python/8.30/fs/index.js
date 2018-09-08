@@ -9,10 +9,8 @@ var gameRoleInfo = {
     attack: '111',
     money: '3201'
 }
-
 // 将字典对象转化成字符串对象
 var gameRoleInfoString = JSON.stringify(gameRoleInfo)
-
 // writeFile后面跟三个值
 // 1.写入文件的路径
 // 2.写入的内容

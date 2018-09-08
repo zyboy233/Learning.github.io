@@ -17,4 +17,4 @@ class myImagePipeline(ImagesPipeline):
     def file_path(self, request, response=None, info=None):
         title = request.meta['title']
         file_name = request.url.split(r'/')[-1]
-        return '东方/{}/{}'.format(title,file_name)
+        return '高清/{}/{}'.format(title,file_name)

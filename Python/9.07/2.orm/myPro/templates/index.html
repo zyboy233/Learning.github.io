@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示mysql数据</title>
+</head>
+<body>
+{% for person in all %}
+    {{person.uname}} - {{person.uage}} - {{person.usex}}<br>
+{% endfor %}
+
+想要找到{{find.uname}}
+</body>
+</html>

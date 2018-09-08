@@ -5,7 +5,7 @@ from ..items import MmItem
 class MeiziSpider(scrapy.Spider):
     name = 'meizi'
     allowed_domains = ['pic.ganbi888.com']
-    start_urls = ['http://pic.ganbi888.com/category/dongfang/6/']
+    start_urls = ['http://pic.ganbi888.com/category/dongfang/178/']
 
     def parse(self, response):
         # print(response.text)

@@ -22,11 +22,8 @@
             form.append('name', '小青年')
             form.append('age', '17')
             form.append('fond', '玩')
-
             xhr.open('post', '/test')
-
             xhr.send(form)
-
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     console.log(xhr.responseText)
