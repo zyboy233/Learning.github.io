@@ -1,0 +1,42 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+main{
+    border: 1px solid black;
+    width:500px;
+    margin: 10px auto;
+    background-color: #66aabf;
+}
+header{
+    color: white;
+    text-align: center;
+    background-color: #99d4ff;
+    height: 90px;
+    padding-top: 20px;
+}
+h2,h4{
+    font-weight: normal;
+    margin: 5px;
+}
+form{
+    width:90%;
+    margin: 20px auto;
+}
+form label{
+    color: gray;
+}
+input{
+    width:99%;
+    height: 25px;
+}
+textarea{
+    width:99%;
+    height: 60px;
+    resize: none;
+}
+.message_item{
+    border: 1px solid black;
+    width:80%;
+    margin:10px auto;
+}

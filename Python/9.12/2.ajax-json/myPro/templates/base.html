@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Title</title>
+</head>
+<body>
+    {% block nav %}
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">智游教育</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="#">身份证查询</a></li>
+            <li class="dropdown">
+                <a id="fun" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {% block type %}
+                    扩展功能
+                    {% endblock %}
+                     <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="item"><a href="http://localhost:8000/weather">天气查询</a></li>
+                    <li class="item"><a href="http://localhost:8000/movie">热映电影</a></li>
+                </ul>
+            </li>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input id="input" type="text" class="form-control" placeholder="请输入要查询的城市">
+                </div>
+                {% block submit %}
+                    <button type="submit" class="btn btn-default">查询</button>
+                {% endblock %}
+            </form>
+        </ul>
+    </div>
+    </div>
+</nav>
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script>
+//        $('.item').click(function () {
+//            $('#fun').text($(this).text())
+//        })
+    </script>
+    {% block script %}
+    {% endblock %}
+</body>
+</html>

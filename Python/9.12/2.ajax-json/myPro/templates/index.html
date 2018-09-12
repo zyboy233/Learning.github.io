@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+    <h1>省份:{{json.content.address_detail.province}}</h1>
+    <h1>城市:{{json.content.address_detail.city}}</h1>
+    <h1>X坐标:{{json.content.point.x}}</h1>
+    <h1>Y坐标:{{json.content.point.y}}</h1>
+</div>
+{% endblock %}

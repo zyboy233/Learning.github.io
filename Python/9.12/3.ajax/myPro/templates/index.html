@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            height:100%;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+<script src="{% static 'jquery.js' %}"></script>
+<script>
+    $('body').click(function () {
+//          $ jquery对象 .get 请求方式
+//        参数1:请求的地址
+//        新增参数2:url的参数必须为json类型
+//        参数2:回调函数  两个参数:a 服务器返回的数据 b 请求状态
+        $.get('/ajax_get/',{'city':'郑州'},function (data,status) {
+            console.log('数据接收完毕')
+            alert(data.content)
+        })
+    })
+</script>
+</body>
+</html>

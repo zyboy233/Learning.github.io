@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{{page}}</title>
+</head>
+<body>
+    {% for good in page.object_list %}
+        <h4>{{good.name}} - {{good.des}}</h4>
+    {% endfor %}
+<ul class="pagination">
+    {# 如果当前页还有上一页 #}
+    {% if page.has_previous %}
+        {# 点击a标签 跳转到上一页链接 ?index=  为地址后面拼接的参数 #}
+        <li><a href="?index={{page.previous_page_number}}">上一页</a></li>
+    {% else %}
+        {# 如果没有上一页 则'上一页'的按钮不可点击 #}
+        <li class="disabled"><a href="#">上一页</a></li>
+    {% endif %}
+
+    {% for page_number in paginator.page_range %}
+        {# page.number 获取当前页的页码 #}
+        {% if page_number == page.number %}
+            <li class="active">
+                <a href="?index={{page_number}}">{{page_number}}</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="?index={{page_number}}">{{page_number}}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+
+    {% if page.has_next %}
+        <li>
+            <a href="?index={{page.next_page_number}}">下一页</a>
+        </li>
+    {% else %}
+        <li class="disabled">
+            <a href="#">下一页</a>
+        </li>
+    {% endif %}
+</ul>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
