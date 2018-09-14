@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="">
+        {% csrf_token %}
+        <input id="user" type="text" name="email" placeholder="请输入邮箱">
+        <br>
+        <input id="password" type="text" name="password" placeholder="请输入密码">
+        <br>
+        <button id="reg" type="submit">注册</button>
+    </form>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script>
+        $('#reg').click(function (event) {
+            event.preventDefault()
+//            var email = $('#user').val()
+//            var password = $('#password').val()
+
+            var email = $('input[name="email"]').val()
+            var password = $('input[name="password"]').val()
+            
+            if(email.length < 6 || password.length<6){
+                alert('账号和密码不能少于6位')
+                return
+            }
+//            $.get(url,data,function (data,status) {})
+//            对象序列化 获取form标签里面的所有值组成json形式
+            data = $('form').serialize()
+            console.log(data)
+            $.ajax({
+                url : {% url 'register' %},
+                type : "POST",
+                data : data,
+                timeout : 1000 * 30,
+                success : function(data){
+                    console.log('请求成功')
+                    console.log(data)
+                },
+                error:function(data){
+                    console.log('请求失败')
+                    console.log(data)
+                }
+            })
+            
+        })
+//        更改form标签的默认提交事件
+//        $('form').submit(function (event) {
+//            event.preventDefault()
+//            alert('1111111111111111111111')
+//        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">某游</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="http://localhost:8000/home">主页</a></li>
+            <li><a href="#">待定</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {% block type %}
+                        扩展功能
+                    {% endblock %}
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://localhost:8000/weather">天气查询</a></li>
+                    <li><a href="http://localhost:8000/movie">电影查询</a></li>
+                </ul>
+            </li>
+        </ul>
+        {% block form %}
+        <form class="navbar-form navbar-left" role="search">
+        {% endblock %}
+        <div class="form-group">
+            <input id="input" name="city" type="text" class="form-control" placeholder="请输入要查询的城市名称">
+        </div>
+        {% block submit %}
+            <button type="submit" class="btn btn-default">点击查询</button>
+        {% endblock %}
+    </form>
+    </div>
+    </div>
+</nav>
+<main>
+    {% block main %}
+    {% endblock %}
+</main>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+{% block script %}
+{% endblock %}
+</body>
+</html>

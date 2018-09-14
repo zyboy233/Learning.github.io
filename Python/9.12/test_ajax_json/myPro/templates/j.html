@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block type %}
+    电影查询
+{% endblock %}
+
+{% block submit %}
+<button id="submit" type="submit" class="btn btn-default">电影查询</button>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="list-group">
+        <div class="list-group-item active">
+            <h3>电影信息</h3>
+        </div>
+        <div id="change">
+            {% for item in json.result.movie %}
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    名称: {{item.movie_name}}
+                </h4>
+                <p class="list-group-item-text">
+                上映日期: {{item.movie_release_date}} |
+                    类型: {{item.movie_tags}} |
+                    演员阵容: {{item.movie_starring}}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $('#submit').click(function (event) {
+        event.preventDefault()
+        var city = $('#city').val()
+        var div = $('#change')
+        div.children('h4').remove()
+        div.children('p').remove()
+        $.get('/j/',{'city':city},function (data,status) {
+            $.each(data['json']['result']['movie'],function (n,value) {
+                var text = value.movie_name
+                div.add('div',text)
+            })
+        })
+    })
+</script>
+{% endblock %}
