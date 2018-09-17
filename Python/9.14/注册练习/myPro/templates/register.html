@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    {% csrf_token %}
+    <input name="username" type="text" placeholder="用户">
+    <br>
+    <input name="password" type="text" placeholder="密码">
+    <br>
+    <button id="submit" type="submit">确定</button>
+</form>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script>
+    $('#submit').click(function (event) {
+        event.preventDefault()
+        data = $('form').serialize()
+        console.log(data)
+        $.ajax({
+            url : {% url 'register' %},
+            type : 'post',
+            data : data,
+            success : function () {
+                console.log('请求成功')
+            },
+            error : function(){
+                console.log('请求失败')
+            }
+        })
+    })
+</script>
+</body>
+</html>

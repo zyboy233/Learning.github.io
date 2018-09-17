@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+{% block type %}
+扩展功能
+{% endblock %}
+
+{% block submit %}
+<button id="submit" type="submit" class="btn btn-default">查询页码</button>
+{% endblock %}
+
+{% block main %}
+    <div id="main" class="container">
+        <div id="myCarousel" class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                {% for num in numList %}
+                <li data-target="#myCarousel" data-slide-to="{{num}}"></li>
+                {% endfor %}
+            </ol>
+    <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                {% for index in json %}
+                    {% if index == json.0 %}
+                        <div class="item active">
+                            <img class="center-block" style="height: 650px" src="{{ index.url }}" alt="First slide">
+                        </div>
+                    {% else %}
+                        <div class="item">
+                            <img class="center-block"  style="height: 650px" src="{{ index.url }}" alt="Second slide">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="carousel-control left" href="#myCarousel"
+               data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="carousel-control right" href="#myCarousel"
+               data-slide="next"><span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $('#submit').click(function (event) {
+            event.preventDefault()
+            var page = $('#input').val()
+            $.get('/girl/',{'page':page},function (data,status) {
+                var main = $('#main')
+                main.children().remove()
+
+                var myCarousel = document.createElement('div')
+                myCarousel.id = 'myCarousel'
+                myCarousel.className = "carousel slide"
+                var ol = document.createElement('ol')
+                ol.className = 'carousel-indicators'
+                ol.innerHTML = ('<li data-target="#myCarousel" data-slide-to="0" class="active"></li>')
+//                for(var index = 1;index<data['numList'].length();index++){
+//                    var li = document.createElement('li').setAttributeNodeNS()
+//                    li.attributes.setNamedItem()
+//                }
+                myCarousel.appendChild(ol)
+
+                var imgs_div = document.createElement('div')
+                imgs_div.className = 'carousel-inner'
+
+                for(var index=0;index<data['json'].length;index++){
+                    var item = document.createElement('div')
+                    item.className = 'item'
+                    var img = document.createElement('img')
+                    img.className = 'center-block'
+                    img.style.height = '650px'
+                    img.src = data['json'][index]['url']
+                    if(index == 0){
+                        item.className = 'item active'
+                    }
+                    item.append(img)
+                    imgs_div.appendChild(item)
+                }
+                myCarousel.appendChild(imgs_div)
+                var a1 = document.createElement('a')
+                a1.className = 'carousel-control left'
+                a1.href = '#myCarousel'
+                a1.setAttribute('data-slide','prev')
+                a1.innerHTML = '<span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>'
+                var a2 = document.createElement('a')
+                a2.className = 'carousel-control right'
+                a2.href = '#myCarousel'
+                a2.setAttribute('data-slide','next')
+                a2.innerHTML = '<span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>'
+                myCarousel.appendChild(a1)
+                myCarousel.appendChild(a2)
+                main.append(myCarousel)
+
+                console.log(data)
+            })
+        })
+    </script>
+{% endblock %}

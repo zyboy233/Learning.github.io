@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+{% block main %}
+    <div class="container">
+        {% for duanzi in paginator.object_list %}
+            <h2>{{duanzi.text}}</h2>
+            <h3>{{duanzi.username}} -- {{duanzi.passtime}}</h3>
+        <br>
+        <br>
+        {% endfor %}
+
+        <ul class="pagination">
+            {% if page != 1 %}
+                <li><a href="?page={{page|reduce}}">上一页</a></li>
+            {% else %}
+                <li class="disabled"><a>上一页</a></li>
+            {% endif %}
+            {% for pageIndex in list %}
+                {% if pageIndex == page %}
+                    <li class="active"><a href="?page={{pageIndex}}">{{pageIndex}}</a></li>
+                {% else %}
+                    <li><a href="?page={{pageIndex}}">{{pageIndex}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page != 10 %}
+                <li><a href="?page={{page|myadd}}">下一页</a></li>
+            {% else %}
+                <li class="disabled"><a>下一页</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
