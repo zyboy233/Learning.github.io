@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="container list-group">
+        <div id="test">
+                {% for item in json.data %}
+                    <div class="list-group-item">
+                        <img style="height: 100px;" src="{{item.header}}" alt="">
+                        <h3 class="list-group-item-heading pull-right">{{item.username}}</h3>
+                        <h4 class="list-group-item-text">内容:{{item.text}}</h4>
+                        <br>
+                        <span><img style="height: 30px;" src="{{item.top_commentsHeader}}" alt="">&nbsp;{{item.top_commentsName}}</span>
+                        <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{item.top_commentsContent}}</h5>
+                    </div>
+                {% endfor %}
+        </div>
+        <ul class="pagination">
+            {% if page == 1 %}
+                <li class="disabled"><a href="#">上一页</a></li>
+            {% else %}
+                <li><a href="?page={{page | add:-1}}">上一页</a></li>
+            {% endif %}
+            {% for index in range %}
+                {% if page == index %}
+                <li class="active"><a href="?page={{index}}">{{index}}</a></li>
+                {% else %}
+                <li><a href="?page={{index}}">{{index}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page == 10 %}
+                <li class="disabled"><a href="#">下一页</a></li>
+            {% else %}
+                <li><a href="?page={{page | add:+1}}">下一页</a></li>
+            {% endif %}
+        </ul>
+        <!--<div id="testinput">fefefe</div>-->
+        <!--<button id="testbutton" type="button">按钮</button>-->
+    </div>
+{% endblock %}
+
+{% block script %}
+<!--<script>-->
+    <!--$('#testbutton').click(function () {-->
+        <!--$.get('/joy/',{'page':'3'},function (data,status) {-->
+        <!--var divs = $('.list-group-item')-->
+            <!--divs.remove()-->
+
+        <!--var item_list = data.json.data-->
+            <!--for (var index=0;index<item_list.length;index++){-->
+                <!--var h1 = document.createElement('h1')-->
+                <!--h1.innerText = item_list[index].username-->
+                <!--var testdiv = document.getElementById('testinput')-->
+                <!--testdiv.appendChild(h1)-->
+            <!--}-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+{% endblock %}

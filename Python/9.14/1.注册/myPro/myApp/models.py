@@ -10,6 +10,6 @@ class CustomUser(AbstractUser):
     # AbstractUser 里面有默认字段 可以全部使用默认字段 也可以添加额外字段
     # 以下是添加的额外字段  这些字段只做演示 代码其他地方用不到
     birthday = models.DateField(default='2015-08-12')
-    nick = models.CharField(default='honey')
+    nick = models.CharField(max_length=100,default='honey')
     class Meta:
         db_table = 'my_user'

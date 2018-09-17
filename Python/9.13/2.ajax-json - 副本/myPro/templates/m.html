@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block type %}
+热映电影
+{% endblock %}
+
+{% block submit %}
+<button id="submit" type="submit" class="btn btn-default">电影查询</button>
+{% endblock %}
+
+{% block main %}
+    <div id="main" class="container">
+        <h1>城市: {{json.result.cityname}}</h1>
+    {% for movie in json.result.movie %}
+        <h3>{{movie.movie_name}}</h3>
+        <h4>{{movie.movie_release_date}}</h4>
+        <br>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+//    post请求可能会产生跨域事件  所以需要将跨域事件终止掉
+//    以下代码为固定格式 每次post请求都需要添加这句代码
+    $.ajaxSetup({
+        data:{'csrfmiddlewaretoken':'{{csrf_token}}'}
+    })
+    $('#submit').click(function (event) {
+        event.preventDefault()
+        var city = $('#input').val()
+        $.post('/movie/',{'city':city},function (data,status) {
+//            ajax请求获取到数据以后
+//            1.删除页面上原来的数据 根据id 叫做main
+//            2.创建了一个id叫做main class叫做container的容器
+//            3.创建了一个h1标签
+//            4.for循环创建h3 h4 显示电影信息
+//            5.
+            var main = document.getElementById('main')
+            document.body.removeChild(main)
+
+            if(data['json']['error'] == 0){
+                container = document.createElement('div')
+                container.className = 'container'
+                container.id = 'main'
+                document.body.appendChild(container)
+
+                var h1 = document.createElement('h1')
+                h1.innerText = data['json']['result']['cityname']
+                container.appendChild(h1)
+
+                var allMovies = data['json']['result']['movie']
+                for(var index=0; index<allMovies.length;index++){
+                    var movie = allMovies[index]
+                    var h3 = document.createElement('h3')
+                    var h4 = document.createElement('h4')
+                    h3.innerText = movie.movie_name
+                    h4.innerText = movie.movie_release_date
+                    container.appendChild(h3)
+                    container.appendChild(h4)
+                }
+            }
+            else{
+                var h1 = document.createElement('h1')
+                h1.id = 'main'
+                h1.innerText = data['json']['status']
+                document.body.appendChild(h1)
+            }
+        })
+    })
+</script>
+{% endblock %}

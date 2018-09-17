@@ -84,6 +84,7 @@ DATABASES = {
         'PORT':3306
     }
 }
+AUTH_USER_MODEL = 'myApp.CustomUser'
 
 
 # Password validation

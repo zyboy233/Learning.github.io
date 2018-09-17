@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block type %}
+天气查询
+{% endblock %}
+
+{% block submit %}
+<button id="submit" type="submit" class="btn btn-default">天气查询</button>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 id="city">城市:{{json.results.0.currentCity}}</h1>
+        <h1 id="date">日期:{{json.results.0.weather_data.0.date}}</h1>
+        <h1 id="temperature">温度:{{json.results.0.weather_data.0.temperature}}</h1>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $.ajaxSetup({
+        data:{'csrfmiddlewaretoken':'{{csrf_token}}'}
+    })
+    $('#submit').click(function (event) {
+//        阻止form表单默认提交操作的刷新
+        event.preventDefault()
+        city = $('#input').val()
+        $.post('/weather/',{'city':city},function (data,status) {
+            console.log(data)
+            $('#city').text('城市:'+data['json']['results'][0]['currentCity'])
+            $('#date').text('日期:'+data['json']['results'][0]['weather_data'][0]['date'])
+            $('#temperature').text('温度:'+data.json.results[0].weather_data[0].temperature)
+        })
+    })
+</script>
+{% endblock %}
