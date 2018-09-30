@@ -1,4 +1,5 @@
 from django.db import models
+<<<<<<< HEAD
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 import datetime
@@ -15,3 +16,7 @@ class EmailRecord(models.Model):
 
 class ResetWithEmail(models.Model):
     email = models.EmailField(error_messages={'invalid':'重置邮箱错误'})
+=======
+
+# Create your models here.
+>>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d

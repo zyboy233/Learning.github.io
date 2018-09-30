@@ -1,4 +1,5 @@
 from django.urls import path
+<<<<<<< HEAD
 from django.conf.urls import url
 from . import views
 from .views import RegisterView,LoginView,ActiveView,HomeView,ForgetView,ResetView,ResetPage
@@ -12,4 +13,11 @@ urlpatterns = [
     path(r'forget/',ForgetView.as_view(),name='forget'),
     url(r'^reset/(?P<reset>\w+)',ResetView.as_view(),name='reset'),
     url(r'resetpage/',ResetPage.as_view(),name='resetpage')
+=======
+from . import views
+from .views import RegisterView
+
+urlpatterns = [
+    path('register/',RegisterView.as_view(),name='register')
+>>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d
 ]

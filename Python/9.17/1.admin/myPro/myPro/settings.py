@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k0f+12-c5vwuau--&z_(pbf7(wv7*#*kt*!-v@5%xnoo+yhq$x'
+SECRET_KEY = 'ycj_g&0=!*g6&_0^2yh900_8w%ot+$+7=75g$-2y&9zfh2w#-!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,12 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'myApp',
-    'captcha'
-=======
     'myApp'
->>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d
 ]
 
 MIDDLEWARE = [
@@ -60,7 +55,7 @@ ROOT_URLCONF = 'myPro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,11 +80,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-<<<<<<< HEAD
-AUTH_USER_MODEL = 'myApp.UserProfile'
-=======
 
->>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -128,17 +119,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
-<<<<<<< HEAD
-]
-
-EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = '451253127@qq.com'
-EMAIL_HOST_PASSWORD = 'qwdyrxxlxzqebhih'
-EMAIL_HOST_TLS = True
-=======
-]
->>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d

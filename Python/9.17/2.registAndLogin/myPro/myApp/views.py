@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.views import View
+<<<<<<< HEAD
 from .forms import RegisterForm,LoginForm,ForgetForm,ResetForm
 from .models import UserProfile,EmailRecord,ResetWithEmail
 from django.contrib.auth.hashers import make_password,check_password
 from utils.email_send import send_email
 from django.contrib.auth import authenticate
+=======
+>>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -13,6 +16,7 @@ def regist(request):
 
 class RegisterView(View):
     def get(self,request):
+<<<<<<< HEAD
         register_form = RegisterForm()
         return render(request,'register.html',{'register_form':register_form})
     def post(self,request):
@@ -152,3 +156,6 @@ class ResetPage(View):
 3.no such table
   重新模型迁移
 """
+=======
+        return render(request,'register.html')
+>>>>>>> c506c80a176cfc5fee6a6a16dfce151d2249213d
