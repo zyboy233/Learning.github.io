@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title%}
+阶段修改
+{% endblock %}
+
+{% block style %}
+<style>
+    .container {
+            position: relative;
+        }
+
+        #loginname {
+            position: absolute;
+            right: 0;
+        }
+        h2{
+            margin: 0;
+            padding: 12px 0;
+            background-color: lightgray;
+            font-size: 20px;
+        }
+        .navbar{
+            margin-bottom: 0;
+        }
+        form{
+            padding-left: 200px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<h2>
+    <div class="container">
+        <div>阶段修改</div>
+    </div>
+</h2>
+<div class="container">
+    <form class="form-horizontal" role="form" action="{% url 'stage:edit' %}" method="POST">
+        {% csrf_token %}
+        <br>
+        <input  type="text"  class="form-control hidden" name="stage_id" id="stage_id" value="{{stage.id}}" placeholder="{{stage.id}}">
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">阶段</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="title" id="title" placeholder="{{stage.title}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="days" class="col-sm-2 control-label">学时</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="days" id="days" placeholder="{{stage.days}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="number" class="col-sm-2 control-label">排序</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" name="number" id="number" placeholder="{{stage.number}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="project" class="col-sm-2 control-label">项目</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="project" id="project" placeholder="{{stage.project}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="teaching" class="col-sm-2 control-label">教学方法</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="teaching" id="teaching" placeholder="{{stage.teaching}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="learning" class="col-sm-2 control-label">学习方法</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="learning" id="learning" placeholder="{{stage.learning}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="sharing" class="col-sm-2 control-label">学生分享</label>
+            <div class="col-sm-10">
+                <textarea name="sharing" id="sharing" cols="70" rows="10" placeholder="{{stage.sharing}}"></textarea>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="remark" class="col-sm-2 control-label">备注</label>
+            <div class="col-sm-10">
+                <textarea name="remark" id="remark" cols="70" rows="10" placeholder="{{stage.remark}}"></textarea>
+            </div>
+        </div>
+        <br>
+        {% if msg %}
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-setsize="30px" aria-hidden="true">&times;</button>
+            {{msg}}
+        </div>
+        {% endif %}
+        <br>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-success btn-block">修改</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <h3 style="color: lightgray;">
+        创建人:{{stage.creator}}<br>
+        创建时间:{{stage.create_time}}<br>
+        版本:{{stage.version}}
+    </h3>
+</div>
+{% endblock %}

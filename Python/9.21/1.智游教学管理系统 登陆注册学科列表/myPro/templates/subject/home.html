@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+教学大纲管理系统
+{% endblock %}
+
+{% block style %}
+    <style>
+        .container{
+                position: relative;
+            font-size: large;
+            }
+            #loginname{
+            position: absolute;
+            right: 50px;
+        }
+        #logoutname{
+            position: absolute;
+            right: 0;
+        }
+
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h2 class="text-center">学科</h2>
+        {% for subject in subjects %}
+
+            <div class="text-center">
+                {{subject.number}}.&#x3000;
+                {{subject.name}}({{subject.amount}},{{subject.days}}天)
+            <a href="/subject/detail/?subject_id={{subject.id}}"><span class="glyphicon glyphicon-list"></span></a>
+            <a href="/subject/edit/?subject_id={{subject.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+            <a href="/subject/delete/?subject_id={{subject.id}}"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                <a href="/stage/list/?subject_id={{subject.id}}">阶段</a>
+            <br>
+                <br>
+        {% endfor %}
+            <a href="/subject/add">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+            </a>
+            </div>
+    </div>
+{% endblock %}

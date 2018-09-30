@@ -1,0 +1,86 @@
+{% extends 'df_goods/base_goods.html' %}
+{% block head %}
+    <script>
+        {# 实现购买数量的增减和总价的计算 #}
+        function add() {
+            {# 获取原有数量，并转化为整数 #}
+            num = parseInt($('.num_show').val());
+            $('.num_show').val(num+1);
+            {# 因为输入框没有输入数量，通过点击+/-实现input标签value值得变化，不能输入就没有失去焦点的状态。主动调用blur()让其失去焦点。 #}
+            $('.num_show').blur();
+        }
+        function minus() {
+            {# 获取原有数量，并转化为整数 #}
+            num = parseInt($('.num_show').val());
+            if (num<=1){
+                return;
+            }
+            $('.num_show').val(num-1);
+            $('.num_show').blur();
+        }
+        $(function () {
+            $('.num_show').blur(function () {
+                num = parseInt($('.num_show').val());
+                price = parseFloat($('.show_pirze em').text());
+                total = num * price;
+                {# toFixed(2)保留两位小数 #}
+                $('.total em').text(total.toFixed(2));
+                $('.num_show').val(num);
+            })
+            $('#add_cart').click(function () {
+                count = $('.num_show').val();
+                goodsid = {{ goods.id }};
+                url = '/cart/add/'+goodsid+'/'+count+'/';
+                $.get(url, function (data) {
+                    $('#show_count').text(data.count);
+                });
+            });
+        })
+    </script>
+{% endblock %}
+{% block detail %}
+<div class="goods_detail_con clearfix">
+    <div class="goods_detail_pic fl"><img src="/static/{{ goods.g_pic }}"></div>
+
+    <div class="goods_detail_list fr">
+        <h3>{{ goods.g_title }}</h3>
+        <p>{{ goods.g_abstract }}</p>
+        <div class="prize_bar">
+            <span class="show_pirze">¥<em>{{ goods.g_price }}</em></span>
+            <span class="show_unit">单  位：{{ goods.g_unit }}</span>
+        </div>
+        <div class="goods_num clearfix">
+            <div class="num_name fl">数 量：</div>
+            <div class="num_add fl">
+                <input type="text" class="num_show fl" value="1">
+                <a href="javascript:add();" class="add fr">+</a>
+                <a href="javascript:minus();" class="minus fr">-</a>
+            </div>
+        </div>
+        <div class="total">总价：<em>{{ goods.g_price }}</em>元</div>
+        <div class="operate_btn">
+            <a href="javascript:;" class="buy_btn">立即购买</a>
+            <a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>
+        </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block list %}
+<div class="r_wrap fr clearfix">
+    <ul class="detail_tab clearfix">
+        <li class="active">商品介绍</li>
+        <li>评论</li>
+    </ul>
+
+    <div class="tab_content">
+        <dl>
+            <dt>商品详情：</dt>
+            <dd>{{ goods.g_content | safe}}</dd>
+        </dl>
+    </div>
+
+</div>
+{% endblock %}
+
+

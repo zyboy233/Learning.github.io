@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+<div>
+    <span>3s</span>
+    秒钟以后跳转到其他页面...
+    <a href="{{url}}">立即跳转</a>
+</div>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script>
+        $(function(){
+            var second = 3
+            setInterval(function(){
+                second --;
+                $('span').text(second + 's')
+                if (second == 0){
+                    window.location.href = '{{url}}'
+                }
+            },1000)
+        })
+    </script>
+</body>
+</html>

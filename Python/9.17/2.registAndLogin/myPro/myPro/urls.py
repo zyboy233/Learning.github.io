@@ -21,4 +21,5 @@ from myApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',include('myApp.urls')),
+    path('captcha/',include('captcha.urls'))
 ]

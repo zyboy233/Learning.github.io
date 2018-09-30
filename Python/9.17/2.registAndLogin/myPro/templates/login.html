@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+登陆
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1 class="text-center">请输入登陆信息</h1>
+    <form class="form-horizontal" role="form" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-10">
+                <input name="email" id="inputEmail" type="text" class="form-control" id="firstname" placeholder="请输入邮箱">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input name="password" id="inputPassword" type="text" class="form-control" id="lastname" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-2 control-label">&#x3000;&#x3000;</label>
+            <div class="col-sm-10" style="display:flex;justify-content:space-between;">
+                <a href="/login/register">注册新用户</a>
+                <a href="/login/forget">忘记密码</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <h3>{{login_form.errors.email}}</h3>
+            <h3>{{login_form.errors.password}}</h3>
+            <h3>{{login_form.errors.captcha}}</h3>
+            <h3>{{msg}}</h3>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="submit" type="submit" class="btn btn-success btn-block">登陆</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

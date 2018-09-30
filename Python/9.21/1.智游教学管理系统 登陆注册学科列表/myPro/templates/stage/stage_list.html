@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+教学大纲管理系统
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <h2 class="text-center">{{subject_name}}阶段</h2><br>
+        {% for stage in stage_list %}
+            <div class="text-center">
+                {{stage.number}}.&#x3000;{{stage.title}}({{stage.days}}天)
+            <a href="/stage/detail/?stage_id={{stage.id}}"><span class="glyphicon glyphicon-list"></span></a>
+            <a href="/stage/edit/?stage_id={{stage.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+            <a href="/stage/delete/?stage_id={{stage.id}}"><span class="glyphicon glyphicon-remove-circle"></span></a>
+            <a href="/outline/{{stage.id}}">一级大纲</a>
+                <h3 style="color: lightgray">{{stage.project}}</h3>
+            <br>
+
+        {% endfor %}
+            <a href="#">
+                <a href="/stage/add/"><span class="glyphicon glyphicon-plus-sign"></span></a>
+            </a>
+            </div>
+    </div>
+{% endblock %}

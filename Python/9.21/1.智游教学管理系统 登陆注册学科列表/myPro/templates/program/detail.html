@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+二级大纲详情
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h2>二级大纲详情</h2>
+    <br>
+    <h3>阶段:{{stage.title}}</h3>
+    <h3>一级大纲:{{outline.title}}</h3>
+    <h3>标志性内容:{{program.sign}}</h3>
+    <h3>排序:{{program.number}}</h3>
+    <h3>内容摘要:{{program.digest}}</h3>
+    <h3>准备工作:{{program.prepare}}</h3>
+    <h3>讲课流程:{{program.process}}</h3>
+    <h3>注意事项:{{program.attention}}</h3>
+    <h3>课后作业:{{program.exercise}}</h3>
+    <h3>学生分享:{{program.share}}</h3>
+    <h3>管理事项:{{program.management}}</h3>
+    <h3>备注:{{program.remark}}</h3>
+    <br>
+    <h3>创建人:{{program.creator}}</h3>
+    <h3>创建时间:{{program.create_time}}</h3>
+    {% if program.updater %}
+        <h3>更新人:{{program.updater}}</h3>
+        <h3>更新时间:{{program.update_time}}</h3>
+    {% endif %}
+    <h3>版本号:{{program.version}}</h3>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<div>
+    <h3>3</h3>
+    秒钟后跳转...
+    <a href="/login/login/">点击跳转</a>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script>
+    $(function () {
+        var second = 3
+        setInterval(function () {
+            second --
+            $('h3').text(second)
+            if(second == 0){
+                window.location.href = '/login/login/'
+            }
+        },1000)
+    })
+</script>
+</body>
+</html>

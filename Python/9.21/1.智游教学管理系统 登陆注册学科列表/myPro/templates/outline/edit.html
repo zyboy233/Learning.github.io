@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+一级大纲编辑
+{% endblock %}
+
+{% block style %}
+<style>
+    .container {
+            position: relative;
+        }
+
+        #loginname {
+            position: absolute;
+            right: 0;
+        }
+        h2{
+            margin: 0;
+            padding: 12px 0;
+            background-color: lightgray;
+            font-size: 20px;
+        }
+        .navbar{
+            margin-bottom: 0;
+        }
+        form{
+            padding-left: 200px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<h2>
+    <div class="container">
+        <div>大纲编辑</div>
+    </div>
+</h2>
+<div class="container">
+    <form class="form-horizontal" role="form" action="{% url 'outline:edit' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="outline_id" value="{{outline.id}}">
+        <br>
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">大纲标题</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="title" id="title" placeholder="{{outline.title}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="days" class="col-sm-2 control-label">学时</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="days" id="days" placeholder="{{outline.days}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="number" class="col-sm-2 control-label">排序</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" name="number" id="number" placeholder="{{outline.number}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="advancing" class="col-sm-2 control-label">高级内容</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="advancing" id="advancing" placeholder="{{outline.advancing}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="remark" class="col-sm-2 control-label">备注</label>
+            <div class="col-sm-10">
+                <textarea name="remark" id="remark" cols="70" rows="10" placeholder="{{outline.remark}}"></textarea>
+            </div>
+        </div>
+        <br>
+        {% if msg %}
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-setsize="30px" aria-hidden="true">&times;</button>
+            {{msg}}
+        </div>
+        {% endif %}
+        <br>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-success btn-block">提交</button>
+            </div>
+        </div>
+    </form>
+    <h3 style="color: lightgray;">
+        创建人:{{outline.creator}}<br>
+        创建时间:{{outline.create_time}}<br>
+        版本:{{outline.version}}
+    </h3>
+</div>
+{% endblock %}

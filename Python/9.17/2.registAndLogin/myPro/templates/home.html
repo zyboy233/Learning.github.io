@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+首页
+{% endblock %}
+
+{% block style %}
+<style>
+      .foodsection {
+            /* border: 1px solid red; */
+            background-color: whitesmoke;
+      }
+      .container{
+            margin-bottom: 20px;
+      }
+      section {
+            width: 100%;
+      }
+
+      img,
+      h4,
+      h5 {
+            text-align: center;
+      }
+
+      img {
+            width: 250px;
+            margin: 10px auto 0;
+      }
+</style>
+{% endblock %}
+
+{% block main %}
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+            <div class="navbar-header">
+                  <a class="navbar-brand" href="#">主页</a>
+            </div>
+            <div>
+                  <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">iOS</a></li>
+                        <li><a href="#">SVN</a></li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Java <b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                    <li><a href="#">jmeter</a></li>
+                                    <li><a href="#">EJB</a></li>
+                                    <li><a href="#">Jasper Report</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">分离的链接</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">另一个分离的链接</a></li>
+                              </ul>
+                        </li>
+                  </ul>
+            </div>
+      </div>
+</nav>
+<div class="container">
+
+      <div class="row">
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <a href=""><img src="{% static 'food.png' %}" alt=""></a>
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+      </div>
+</div>
+<div class="container">
+
+      <div class="row">
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+      </div>
+</div>
+<div class="container">
+
+      <div class="row">
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+            <div class="col-xs-6 col-sm-3 foodsection">
+                  <section>
+                        <img src="{% static 'food.png' %}" alt="">
+                        <h4>商品标题</h4>
+                        <h5>店铺地址&#x3000;&#x3000;&#x3000;&#x3000;评价</h5>
+                  </section>
+            </div>
+      </div>
+</div>
+{% endblock %}

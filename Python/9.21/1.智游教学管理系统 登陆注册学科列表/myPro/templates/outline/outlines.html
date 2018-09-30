@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+教学大纲管理系统
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <h2 class="text-center">一级大纲</h2><br>
+        {% for outline in outlines %}
+            <div class="text-center">
+                {{outline.number}}.&#x3000;{{outline.title}}({{outline.days}}天)
+            <a href="/outline/detail/{{outline.id}}"><span class="glyphicon glyphicon-list"></span></a>
+            <a href="/outline/edit/{{outline.id}}"><span class="glyphicon glyphicon-edit"></span></a>
+            <a href="/outline/delete/{{outline.id}}"><span class="glyphicon glyphicon-remove-circle"></span></a>
+            <a href="/program/{{outline.id}}">二级大纲</a>
+            <br>
+                <span class="glyphicon glyphicon-arrow-down"></span><br>
+        {% endfor %}
+            <a href="/outline/add/{{stage_id}}"><span class="glyphicon glyphicon-plus-sign"></span></a>
+            </div>
+    </div>
+{% endblock %}

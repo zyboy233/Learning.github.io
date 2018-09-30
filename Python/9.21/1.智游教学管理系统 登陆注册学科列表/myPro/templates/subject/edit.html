@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title%}
+学科修改
+{% endblock %}
+
+{% block style %}
+<style>
+    .container {
+            position: relative;
+        }
+
+        #loginname{
+            position: absolute;
+            right: 50px;
+        }
+        #logoutname{
+            position: absolute;
+            right: 0;
+        }
+        h2{
+            margin: 0;
+            padding: 12px 0;
+            background-color: lightgray;
+            font-size: 20px;
+        }
+        .navbar{
+            margin-bottom: 0;
+        }
+        form{
+            padding-left: 200px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<h2>
+    <div class="container">
+        <div>学科修改</div>
+    </div>
+</h2>
+<div class="container">
+    <form class="form-horizontal" role="form" action="{% url 'subject:edit' %}" method="POST">
+        {% csrf_token %}
+        <br>
+        <input  type="text"  class="form-control hidden" name="subject_id" id="subject_id" value="{{subject.id}}" placeholder="{{subject.id}}">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">名称</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="name" id="name" placeholder="{{subject.name}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="days" class="col-sm-2 control-label">学时</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="days" id="days" placeholder="{{subject.days}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="amount" class="col-sm-2 control-label">学费</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" name="amount" id="amount" placeholder="{{subject.amount}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="number" class="col-sm-2 control-label">排序</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="number" id="number" placeholder="{{subject.number}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="assurance" class="col-sm-2 control-label">承诺</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="assurance" id="assurance" placeholder="{{subject.assurance}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="remark" class="col-sm-2 control-label">备注</label>
+            <div class="col-sm-10">
+                <textarea name="remark" id="remark" cols="70" rows="10" placeholder="{{subject.remark}}"></textarea>
+            </div>
+        </div>
+        <br>
+        {% if msg %}
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-setsize="30px" aria-hidden="true">&times;</button>
+            {{msg}}
+        </div>
+        {% endif %}
+        <br>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-success btn-block">添加</button>
+            </div>
+        </div>
+    </form>
+    <h3 style="color: lightgray;">
+        创建人:{{subject.creator}}<br>
+        创建时间:{{subject.create_time}}<br>
+        版本:{{subject.version}}
+    </h3>
+</div>
+{% endblock %}

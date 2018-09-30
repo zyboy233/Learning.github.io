@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    {% block style %}
+    <style>
+        .container{
+                font-size: large;
+                position: relative;
+            }
+        #loginname{
+            position: absolute;
+            right: 50px;
+        }
+        #logoutname{
+            position: absolute;
+            right: 0;
+        }
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+    {% block nav %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">智游教学管理</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/subject">首页</a></li>
+                    <li><a href="#">用户</a></li>
+                    <li><a href="{% url 'login' %}">登陆</a></li>
+                    <li><a href="#">关于</a></li>
+                    {# 判断如果当前用户已经被授权登陆 #}
+                    {% if request.user.is_authenticated %}
+                    <li id="loginname">
+                        <a href="">{{request.user.username}}</a>
+                    </li>
+                    <li id="logoutname">
+                        <a href="/user/logout">注销</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block main %}
+    <div class="container">
+        <form class="form-horizontal" role="form" action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <br>
+            <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">账号</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="username" id="firstname" placeholder="请输入账号">
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="lastname" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="password" id="lastname" placeholder="请输入密码">
+                </div>
+            </div>
+            <br>
+            {% if msg %}
+            <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-setsize="30px" aria-hidden="true">&times;</button>
+                {{msg}}
+            </div>
+            {% endif %}
+            <br>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success btn-block">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    {% block script %}
+
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+
+<body>
+    <form action="/login/regist/" method="POST">
+        {% csrf_token %}
+        <input name="email" type="text" placeholder="请输入邮箱">
+        <br>
+        <input name="password" type="text" placeholder="请输入密码">
+        <br>
+        <div>{{regist_form.captcha}}</div>
+        <h4 id="seconds"></h4>
+        <h4>{{regist_form.errors.email}}</h4>
+        <h4>{{regist_form.errors.password}}</h4>
+        <h4>{{regist_form.errors.captcha}}</h4>
+        <h4>{{msg}}</h4>
+        <button type="submit">注册</button>
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+        <script>
+            var seconds = 10
+            timeInterval = null
+            $('.captcha').click(function () {
+                showNewCaptcha()
+            })
+            function showNewCaptcha() {
+                seconds = 10
+                window.clearInterval(timeInterval)
+                $.getJSON('/captcha/refresh', function (data) {
+                    console.log(data)
+                    $('.captcha').attr('src', data['image_url'])
+                    $('#id_captcha_0').val(data['key'])
+                    timeInterval = setInterval(function () {
+                        seconds--
+                        $('#seconds').text(seconds + 's')
+                        if (seconds == 0) {
+                            $('#seconds').text('')
+                            window.clearInterval(timeInterval)
+                        }
+                    }, 1000)
+                })
+            }
+            $('#id_captcha_1').click(function(){
+                if (seconds <= 0){
+                    alert('验证码已过期!')
+                    showNewCaptcha()
+                }
+            })
+        </script>
+    </form>
+</body>
+
+</html>

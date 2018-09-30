@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block link %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{% block title %}注册{% endblock %}</title>
+    {% block style %}
+    <style>
+        .container{
+          margin-top: 60px;
+        }
+        .form-horizontal{
+          position: relative;
+          left: -6%;
+        }
+        .captcha{
+          width: 75px;
+          height: 30px;
+        }
+        #right{
+          position: relative;
+          left: 120px;
+        }
+        #show{
+          color: gray;
+        }
+      </style>
+    {% endblock %}
+</head>
+
+<body>
+    {% block main %}
+    <div class="container">
+        <h1 class="text-center">请输入注册信息</h1>
+        <form class="form-horizontal" role="form" action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                <div class="col-sm-10">
+                    <input name="email" id="inputEmail" type="text" class="form-control" id="firstname" placeholder="请输入邮箱">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input name="password" id="inputPassword" type="text" class="form-control" id="lastname"
+                        placeholder="请输入密码">
+                </div>
+            </div>
+
+            <div id="right" class="form-group">
+                <div class="col-sm-10">
+                    {{register_form.captcha}}
+                    <label id="show" for=""></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3>{{register_form.errors.email}}</h3>
+                <h3>{{register_form.errors.password}}</h3>
+                <h3>{{register_form.errors.captcha}}</h3>
+                <h3>{{msg}}</h3>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button id="submit" type="submit" class="btn btn-success btn-block">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    {% block script %}
+    <script>
+        // 验证码是否过期
+        var oldValue = false
+        var seconds = 10
+        $(function () {
+            $('.captcha').css('cursor', 'pointer')
+            $('.captcha').click(function () {
+                showNewCode()
+            })
+        })
+
+        function showNewCode() {
+            // 请求验证码地址  获取最新的验证码图片以及验证码内容
+            $.getJSON('/captcha/refresh/', function (data, status) {
+                // 更新验证码图片
+                $('.captcha').attr('src', data['image_url'])
+                // 更新验证码值
+                $('#id_captcha_0').val(data['key'])
+
+                setInterval(function () {
+                    seconds--
+                    $('#show').text(seconds + 's')
+                    if (seconds < 0) {
+                        oldValue = true
+                        $('#show').text('')
+                    }
+                }, 1000)
+            })
+        }
+
+        $('#id_captcha_1').click(function () {
+            if (oldValue == true) {
+                alert('验证码已过期')
+                showNewCode()
+            }
+        })
+    </script>
+    {% endblock %}
+</body>
+
+</html>

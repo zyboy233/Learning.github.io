@@ -1,0 +1,3 @@
+{{ object.g_title }}
+{{ object.g_abstract }}
+{{ object.g_content }}

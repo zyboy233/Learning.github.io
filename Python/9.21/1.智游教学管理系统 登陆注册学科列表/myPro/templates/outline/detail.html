@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+一级大纲详情
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h2>一级大纲详情</h2>
+    <br>
+    <h3>标题:{{outline.title}}</h3>
+    <h3>学时:{{outline.days}}</h3>
+    <h3>序号:{{outline.number}}</h3>
+    <h3>高级内容:{{outline.advancing}}</h3>
+    <h3>备注:{{outline.remark}}</h3>
+    <br>
+    <h3>创建人:{{outline.creator}}</h3>
+    <h3>创建时间:{{outline.create_time}}</h3>
+    {% if outline.updater %}
+        <h3>更新人:{{outline.updater}}</h3>
+        <h3>更新时间:{{outline.update_time}}</h3>
+    {% endif %}
+    <h3>版本:{{outline.version}}</h3>
+
+</div>
+{% endblock %}

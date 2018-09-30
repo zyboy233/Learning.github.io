@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+首页
+{% endblock %}
+
+{% block style %}
+<style>
+    .subject {
+        /* border: 1px solid red; */
+        background-color: whitesmoke;
+    }
+    h4{
+        font-weight: bold;
+    }
+    #name,#oldname{
+        width: 30%;
+    }
+    #amount,#days{
+        width: 20%;
+    }
+    #number{
+        width: 10%;
+    }
+    #remark,#assurance{
+        resize: none;
+        width: 50%;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">教学大纲管理系统</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/subject">首页</a></li>
+                <li><a href="#">用户</a></li>
+                <li><a href="#">登陆</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h2>修改学科</h2>
+    <div class="row">
+        <span style="color:lightgreen">{{sub_form.name.error}}</span>
+        <span style="color:lightgreen">{{sub_form.assurance.error}}</span>
+        <span style="color:lightgreen">{{sub_form.amount.error}}</span>
+        <span style="color:lightgreen">{{sub_form.remark.error}}</span>
+        <span style="color:lightgreen">{{sub_form.days.error}}</span>
+        <div class="col-xs-12 col-sm-12 subject">
+            <form class="form-horizontal" role="form" action="{% url 'edit' %}" method="POST">
+                {% csrf_token %}
+                <label for="name" class="col-sm-2 control-label">{{ subject.name }}</label>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" value="{{subject.name}}" name="oldname" class="form-control hidden" id="oldname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">名字</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{subject.name}}" name="name" class="form-control" id="name"
+                            placeholder="请输入名字">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="amount" class="col-sm-2 control-label">学费</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{subject.amount}}" name="amount" class="form-control" id="amount"
+                            placeholder="请输入学费">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="days" class="col-sm-2 control-label">学时</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{subject.days}}" name="days" class="form-control" id="days"
+                            placeholder="请输入学时">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="number" class="col-sm-2 control-label">排序</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{subject.number}}" name="number" class="form-control" id="number"
+                            placeholder="请输入序号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="assurance"" class=" col-sm-2 control-label">承诺</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{subject.assurance}}" name="assurance" class="form-control" id="assurance"
+                            placeholder="请输入承诺">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remark" class="col-sm-2 control-label">备注</label>
+                    <div class="col-sm-10">
+                        <textarea name="remark" id="remark" class="form-control" rows="3"
+                            placeholder="请输入备注">{{subject.remark}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

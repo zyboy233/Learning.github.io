@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+忘记密码
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <form action="{% url 'forget' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <h2>请输入验证邮箱</h2><br>
+            <input name="email" class="form-control" type="text" placeholder="请输入验证邮箱">
+            <br><br>
+            <h3>{{form.errors.email}}</h3>
+            <h3>{{msg}}</h3>
+            <button type="submit" class="btn btn-success btn-block">验证</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

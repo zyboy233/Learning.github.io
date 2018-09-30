@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+阶段详情
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h3>学科:{{subject.name}}</h3>
+    <h3>阶段:{{stage.title}}</h3>
+    <h3>学时:{{stage.days}}</h3>
+    <h3>项目:{{stage.project}}</h3>
+    <h3>教学方法:{{stage.teaching}}</h3>
+    <h3>学习方法:{{stage.learning}}</h3>
+    <h3>学生分享:{{stage.sharing}}</h3>
+    <h3>备注:{{stage.remark}}</h3>
+    <br>
+    <h3>创建人:{{stage.creator}}</h3>
+    <h3>创建时间:{{stage.create_time}}</h3>
+    {% if stage.updater %}
+        <h3>更新人:{{stage.updater}}</h3>
+        <h3>更新时间:{{stage.update_time}}</h3>
+    {% endif %}
+    <h3>版本:{{stage.version}}</h3>
+
+</div>
+{% endblock %}

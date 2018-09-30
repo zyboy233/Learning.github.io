@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title%}
+学科详情
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    {{subject.name}}
+    <br>
+     学时:{{subject.days}}天
+    <br>
+    排序:{{subject.number}}
+    <br>
+    学费:{{subject.amount}}
+    <br>
+    承诺:{{ subject.assurance }}
+    <br>
+    备注:{{subject.remark}}
+    <br>
+    <br>
+    创建人:{{subject.creator}}
+    {% if subject.updater != '0' %}
+    <br>
+    更新人:{{subject.updater}}
+    {% endif %}
+    <br>
+    版本:{{subject.version}}
+    <br>
+    创建时间:{{subject.create_time}}
+    <br>
+    {% if subject.create_time != subject.update_time %}
+    更新时间:{{subject.update_time}}
+    {% endif %}
+    <br>暂无更新
+</div>
+{% endblock %}
+
