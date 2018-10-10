@@ -5,6 +5,24 @@ from django.contrib import admin
 from user.models import UserModel
 # Create your models here.
 
+class CategoryModel(models.Model):
+    """商品分类模型"""
+    category_name = models.CharField(max_length=20,null=False,verbose_name='商品分类名称')
+    # 排序
+    number = models.IntegerField(default=0,verbose_name='排序',unique=True,null=False)
+    # 分类的图片
+    image = models.CharField(default='/static/images/banner01',max_length=100,null=False,verbose_name='分类的展示图片')
+    class Meta:
+        db_table = 'category'
+        verbose_name = '商品分类'
+        verbose_name_plural = verbose_name
+    def __str__(self):
+        return self.category_name
+
+@admin.register(CategoryModel)
+class CategoryAdminModel(admin.ModelAdmin):
+    list_display = ('category_name',)
+
 class GoodsModel(models.Model):
     """商品模型"""
     # 商品名称
@@ -20,6 +38,14 @@ class GoodsModel(models.Model):
     stock = models.IntegerField(default=0,verbose_name='库存')
     # 详细介绍
     desc = models.TextField(null=True,verbose_name='详细介绍')
+    # 默认图片
+    pic = models.CharField(default='/static/images/goods/goods003.jpg',null=False,max_length=200,verbose_name='商品默认图片')
+
+    # 添加一个分类的外键
+    category = models.ForeignKey(CategoryModel,on_delete=models.CASCADE,verbose_name='商品分类',default=1,null=False)
+    # 人气
+    popular = models.IntegerField(default=0,null=False,verbose_name='人气指数')
+
     class Meta:
         # 自定义表名
         db_table = 'goods'
@@ -31,23 +57,9 @@ class GoodsModel(models.Model):
 @admin.register(GoodsModel)
 class GoodsAdminModel(admin.ModelAdmin):
     """商品注册管理后台"""
-    list_display = ['goods_name','stock','price']
+    list_display = ['goods_name','stock','price','category']
 
-class CategoryModel(models.Model):
-    """商品分类模型"""
-    category_name = models.CharField(max_length=20,null=False,verbose_name='商品分类名称')
-    # 排序
-    number = models.IntegerField(default=0,verbose_name='排序',unique=True,null=False)
-    class Meta:
-        db_table = 'category'
-        verbose_name = '商品分类'
-        verbose_name_plural = verbose_name
-    def __str__(self):
-        return self.category_name
 
-@admin.register(CategoryModel)
-class CategoryAdminModel(admin.ModelAdmin):
-    list_display = ('category_name',)
 
 class CommentModel(models.Model):
     """评论模型"""
