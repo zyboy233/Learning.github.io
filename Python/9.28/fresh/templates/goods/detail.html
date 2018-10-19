@@ -8,6 +8,17 @@
                 $('#show_count').text(data.cart_count);
             })
         }
+        function get_comment_goods(goods_id){
+            $.get('/goods/comment/' + goods_id +'/',function (data) {
+                tab_comment = $('#tab_comment')
+                tab_comment.children().remove()
+                for (var i=0;i<data.context.length;i++) {
+                    var dt=$("<dt></dt>").text(data.context[i].username+':')
+                    var dd=$("<dd></dd>").text(data.context[i].content)
+                    tab_comment.append(dt,dd)
+                }
+            })
+        }
         $(function () {
             {#只有点击加入购物车的时候才添加商品到购物车#}
             $('#add_cart').click(function () {
@@ -38,6 +49,31 @@
                     $('#num_show').blur()
                 }
             })
+            $('#detail').click(function () {
+                $(this).attr('class','active')
+                $(this).next().attr('class','')
+                $(this).next().next().attr('class','')
+                $('#tab_comment').attr('hidden','')
+                $('#tab_add_comment').attr('hidden','')
+                $('#tab_detail').removeAttr('hidden')
+            })
+            $('#comment').click(function () {
+                $(this).attr('class','active')
+                $(this).prev().attr('class','')
+                $(this).next().attr('class','')
+                $('#tab_detail').attr('hidden','')
+                $('#tab_add_comment').attr('hidden','')
+                $('#tab_comment').removeAttr('hidden')
+                get_comment_goods($('#goods_id').text())
+            })
+            $('#add_comment').click(function () {
+                $(this).attr('class','active')
+                $(this).prev().attr('class','')
+                $(this).prev().prev().attr('class','')
+                $('#tab_detail').attr('hidden','')
+                $('#tab_comment').attr('hidden','')
+                $('#tab_add_comment').removeAttr('hidden')
+            })
         })    
     </script>
 {% endblock %}
@@ -54,6 +90,7 @@
 		<div class="goods_detail_pic fl"><img src="{{ goods.pic }}"></div>
 
 		<div class="goods_detail_list fr">
+            <h id="goods_id" hidden>{{ goods.id }}</h>
 			<h3>{{ goods.goods_name }}</h3>
 			<p>{{ goods.abstract }}</p>
 			<div class="prize_bar">
@@ -93,15 +130,26 @@
 
 		<div class="r_wrap fr clearfix">
 			<ul class="detail_tab clearfix">
-				<li class="active">商品介绍</li>
-				<li>评论</li>
+				<li class="active" id="detail">商品介绍</li>
+				<li class="" id="comment">评论</li>
+                <li class="" id="add_comment">添加评论</li>
 			</ul>
 
 			<div class="tab_content">
-				<dl>
+				<dl id="tab_detail">
 					<dt>商品详情：</dt>
 					<dd>{{ goods.desc }}</dd>
 				</dl>
+                <dl hidden id="tab_comment">
+                    <dt></dt>
+                    <dd></dd>
+                </dl>
+                <form hidden id="tab_add_comment" action="{% url 'goods:add_comment' %}" method="post">
+                    <dt><label for="">请输入评论内容:</label></dt>
+                    <input hidden type="text" name="goods_id" value="{{ goods.id }}">
+                    <dd><textarea name="content" id="" cols="50" rows="20"></textarea></dd>
+                    <input type="submit" value="提交" class="info_submit">
+                </form>
 			</div>
 		</div>
 	</div>

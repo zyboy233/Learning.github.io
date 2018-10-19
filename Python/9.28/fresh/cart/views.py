@@ -10,7 +10,7 @@ def cart(request):
     """购物车"""
     user_id = request.session.get('user_id')
     carts = CartModel.objects.filter(user_id=user_id)
-    return render(request,'cart/cart.html',{'carts':carts})
+    return render(request,'cart/cart.html',{'carts':carts,'title':'购物车'})
 @login_required
 def add(request,goods_id,count):
     """添加到购物车视图,接收两个参数,商品id: goods_id,商品数量: count"""
@@ -32,3 +32,19 @@ def add(request,goods_id,count):
         cart_count = cart_count_goods(request,CartModel)
         return JsonResponse({'cart_count':cart_count})
     return redirect('/cart/')
+
+@login_required
+def delete(request,cart_id):
+    """购物车中删除某一个商品"""
+    cart = CartModel.objects.get(id=cart_id)
+    cart.delete()
+    # 后端尽量不传给前端bool类型的数据,后端也不接收前端传来的bool类型
+    return JsonResponse({'sucess':1})
+
+@login_required
+def update(request,cart_id,count):
+    """更新购物车内商品的数量"""
+    cart = CartModel.objects.get(id=cart_id)
+    cart.count = count
+    cart.save()
+    return JsonResponse({'success':1})

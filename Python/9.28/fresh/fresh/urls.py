@@ -17,11 +17,16 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
+    path('',include('goods.urls')),
     path('admin/', admin.site.urls),
     # 加入user路由
     path('account/',include('user.urls',namespace='user')),
     # 加入商品的路由
     path('goods/',include('goods.urls',namespace='goods')),
     # 加入购物车的路由
-    path('cart/',include('cart.urls',namespace='cart'))
+    path('cart/',include('cart.urls',namespace='cart')),
+    # 加入订单的路由
+    path('order/',include('order.urls',namespace='order')),
+    # 加入搜索的路由
+    path('search/',include('goods.urls'))
 ]

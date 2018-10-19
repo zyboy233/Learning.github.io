@@ -1,11 +1,15 @@
+import datetime
+
 from django.shortcuts import render,redirect
 from django.http.response import JsonResponse,HttpResponseRedirect
 from django.contrib.auth.hashers import make_password,check_password
+from django.core.paginator import Paginator
 
-from user.models import UserModel
+from user.models import UserModel,CollectGoodsModel
 from user.forms import UserRegisterForm,UserLoginForm
 from goods.models import GoodsModel
 from user.utils import login_required
+from order.models import OrderModel
 # Create your views here.
 
 # 只接受post请求
@@ -67,7 +71,7 @@ def login(request):
             else:
                 # 密码正确
                 # 先生成一个response对象
-                next_url = request.COOKIES.get('next_url','/account/login/')
+                next_url = request.COOKIES.get('next_url','/goods/index/')
                 response = HttpResponseRedirect(next_url)
                 # 记住用户名
                 # 设置cookie
@@ -113,3 +117,54 @@ def info(request):
         goods_list.append(GoodsModel.objects.get(id=goods_id))
     context = {'user_info':user_info,'goods_list':goods_list,'title':'用户中心'}
     return render(request,'user/user_center_info.html',context)
+
+@login_required
+def all_order(request,page_num):
+    """全部订单"""
+    # 查询当前登陆用户所有登陆信息
+    user_id = request.session.get('user_id')
+    all_order = OrderModel.objects.filter(user_id=user_id)
+    # 每一页展示2个
+    paginator = Paginator(all_order,2)
+    page = paginator.page(page_num)
+
+    context = {
+        'page':page,
+        'page_num':page_num,
+        'title':'全部订单'
+    }
+    return render(request,'user/user_center_order.html',context)
+
+@login_required
+def address(request):
+    user_id = request.session.get('user_id')
+    collectgoods = CollectGoodsModel.objects.get(user_id=user_id)
+    if request.method == 'POST':
+        person_name = request.POST.get('person_name')
+        detail_address = request.POST.get('detail_address')
+        postcode = request.POST.get('postcode')
+        tel = request.POST.get('tel')
+        collectgoods.person_name = person_name
+        collectgoods.detail_address = detail_address
+        collectgoods.postcode = postcode
+        collectgoods.tel = tel
+        collectgoods.save()
+        return redirect('/account/address/')
+    context = {
+        'collectgoods':collectgoods,
+        'title':'收货地址'
+    }
+    return render(request,'user/user_center_address.html',context)
+
+def upload(request):
+    """上传接口"""
+    if request.method == 'GET':
+        return render(request,'upload.html')
+    if request.method == 'POST':
+        myfile = request.FILES.get('myfile')
+        ext = myfile.name.split('.')[-1]
+        myfilename = 'text.'+ext
+        with open(myfilename,'wb') as fp:
+            for chunk in myfile.chuncks():
+                fp.write(chunk)
+        return JsonResponse({'result':'success'})

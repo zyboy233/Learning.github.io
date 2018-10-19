@@ -65,7 +65,7 @@ class CommentModel(models.Model):
     """评论模型"""
     # 用户对评论一对多的关系
     user_id = models.ForeignKey(UserModel,on_delete=models.CASCADE,verbose_name='评论的用户')
-    # 商品跟评论的一对多的关系
+    # 商品跟评论一对多的关系
     goods_id = models.ForeignKey(GoodsModel,on_delete=models.CASCADE,verbose_name='商品')
     # 评论的内容
     content = models.CharField(max_length=256,null=False,verbose_name='评论的内容')

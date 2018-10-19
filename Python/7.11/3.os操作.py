@@ -16,7 +16,6 @@ print(name)
 # 获取cpu核数
 cpu_count = os.cpu_count()
 print(cpu_count)
-
 # 判断是否存在某个文件
 # path 路径 exists 存在
     # 如果不写路径地址 直接写文件名字
