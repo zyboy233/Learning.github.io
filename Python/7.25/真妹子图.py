@@ -45,5 +45,6 @@ class Meizitu(object):
         response = requests.get(url)
         response.encoding = response.apparent_encoding
         return response.text
-meizi = Meizitu()
-meizi.spider()
+if __name__ == '__main__':
+    meizi = Meizitu()
+    meizi.spider()

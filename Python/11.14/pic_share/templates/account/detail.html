@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    个人信息
+{% endblock %}
+
+{% block content %}
+    <h1>详情</h1>
+    <img class="image-detail" src="/media/{{ profile.photo }}" alt="头像">
+    <p>用户名: {{ user.username }}</p>
+    <p>出生日期: {{ profile.birth_date }}</p>
+    <p>邮箱: {{ user.email }}</p>
+{% endblock %}

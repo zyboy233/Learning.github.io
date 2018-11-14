@@ -2,21 +2,20 @@ import requests,os
 from lxml import etree
 from urllib.request import urlopen,Request
 from urllib.request import urlretrieve,ProxyHandler
-from fake_useragent import UserAgent
+# from fake_useragent import UserAgent
 import threading
 
 class Meizitu(object):
     def __init__(self):
         self.base_url = 'http://www.mmjpg.com'
-        self.headers = UserAgent()
+        # self.headers = UserAgent()
         self.record = 1
-
-
     def spider(self):
         self.get_data_with_url('/home/31')
     def get_data_with_url(self,url=''):
         headers = {
-            'User-Agent':self.headers.random
+            # 'User-Agent':self.headers.random
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
         }
         url = self.base_url + url
         response = requests.get(url,headers=headers).content
@@ -44,7 +43,8 @@ class Meizitu(object):
 
     def get_sub_data_with_url(self,url):
         headers = {
-            'User-Agent':self.headers.random,
+            # 'User-Agent':self.headers.random,
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
             'referer':'{}/1'.format(url)
         }
         response = requests.get(url,headers=headers).content

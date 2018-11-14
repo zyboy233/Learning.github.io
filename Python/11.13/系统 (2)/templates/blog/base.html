@@ -1,0 +1,36 @@
+{% load static %}
+{% load bloge_tages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/blog.css">
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    <div id="sidebar">
+        <h2> my blog</h2>
+        <p> this is blog 总供{% total_posta  %}篇文章 </p>
+        <h3>最新文章</h3>
+            {% show_latest_posts %}
+        <h3>评论最多的文章</h3>
+            {% get_most_commment_posts as most_commments_posts %}
+        <ul>
+            {% for posts in most_commments_posts %}
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</body>
+</html>

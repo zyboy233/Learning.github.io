@@ -10,7 +10,11 @@
 				<div class="site_con">
 					<dl>
 						<dt>当前地址：</dt>
-						<dd>{{ collectgoods.detail_address }} （{{ collectgoods.person_name }} 收） {{ collectgoods.tel }}</dd>
+                        {% if collectgoods == 0 %}
+                            <dd>请添加收货地址</dd>
+                        {% else %}
+                            <dd>{{ collectgoods.detail_address }} （{{ collectgoods.person_name }} 收） {{ collectgoods.tel }}</dd>
+                        {% endif %}
 					</dl>
 				</div>
 				<h3 class="common_title2">编辑地址</h3>

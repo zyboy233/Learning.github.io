@@ -1,6 +1,6 @@
 import datetime
 
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.http.response import JsonResponse,HttpResponseRedirect
 from django.contrib.auth.hashers import make_password,check_password
 from django.core.paginator import Paginator
@@ -123,7 +123,7 @@ def all_order(request,page_num):
     """全部订单"""
     # 查询当前登陆用户所有登陆信息
     user_id = request.session.get('user_id')
-    all_order = OrderModel.objects.filter(user_id=user_id)
+    all_order = OrderModel.objects.filter(user_id=user_id).order_by('-id')
     # 每一页展示2个
     paginator = Paginator(all_order,2)
     page = paginator.page(page_num)
@@ -138,8 +138,15 @@ def all_order(request,page_num):
 @login_required
 def address(request):
     user_id = request.session.get('user_id')
-    collectgoods = CollectGoodsModel.objects.get(user_id=user_id)
+    collectgoods_list = CollectGoodsModel.objects.filter(user_id=user_id)
+    if collectgoods_list:
+        collectgoods = collectgoods_list[0]
+    else:
+        collectgoods = 0
     if request.method == 'POST':
+        if collectgoods == 0:
+            collectgoods = CollectGoodsModel()
+            collectgoods.user = UserModel.objects.get(id=user_id)
         person_name = request.POST.get('person_name')
         detail_address = request.POST.get('detail_address')
         postcode = request.POST.get('postcode')
@@ -148,8 +155,8 @@ def address(request):
         collectgoods.detail_address = detail_address
         collectgoods.postcode = postcode
         collectgoods.tel = tel
+        collectgoods.is_used = 1
         collectgoods.save()
-        return redirect('/account/address/')
     context = {
         'collectgoods':collectgoods,
         'title':'收货地址'
@@ -168,3 +175,8 @@ def upload(request):
             for chunk in myfile.chuncks():
                 fp.write(chunk)
         return JsonResponse({'result':'success'})
+
+def handle_wx(request):
+    # 微信公众平台绑定验证
+    echostr = request.GET.get('echostr','')
+    return HttpResponse(echostr,content_type="text/plain")
