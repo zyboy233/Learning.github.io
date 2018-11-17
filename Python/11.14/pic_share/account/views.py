@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 from account.forms import LoginForm,UserRegistrationForm,UserEditForm,ProfileEditForm
 from account.models import Profile
+from django.contrib import messages
 
 def user_lgoin(request):
     if request.method == 'POST':
@@ -48,7 +49,7 @@ def register(request):
 @login_required()
 def edit(request):
     if request.method == 'POST':
-        print(request.POST)
+        # print(request.POST)
         # instance 指定对象是数据库中的当前登陆用户的哪一行数据对象,如果不指定将新建记录而不是更新记录
         user_form = UserEditForm(instance=request.user,data=request.POST)
         profile_form = ProfileEditForm(instance=request.user.profile,
@@ -56,6 +57,9 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request,'个人信息修改成功!')
+        else:
+            messages.error(request,"个人信息更新错误!")
     else:
         user_form = UserEditForm()
         profile_form = ProfileEditForm()
